@@ -1,6 +1,7 @@
 IDistributedApplicationBuilder builder = DistributedApplication.CreateBuilder(args);
 
 var cache = builder.AddRedisContainer("cache");
+var db = builder.AddPostgresContainer("db");
 
 // Blue Modules
 var blueApiService = builder
