@@ -7,3 +7,20 @@
 This page is defined in the <strong>GreenModule.Web</strong> library.
 
 <HelloGreen />
+
+<h2>Counter</h2>
+
+<p role="status">Current count: @_currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+  
+  private int _currentCount = 0;
+
+  private void IncrementCount()
+  {
+    _currentCount++;
+  }
+
+}

@@ -6,7 +6,7 @@ public static class DependencyInjections
 {
     public static IServiceCollection AddBlueApiClient(this IServiceCollection services)
     {
-        services.AddHttpClient<WeatherApiClient>(client => client.BaseAddress = new Uri("http://apiservice"));
+        services.AddHttpClient<WeatherApiClient>(client => client.BaseAddress = new Uri("http://blue-api-service"));
         
         return services;
     }
