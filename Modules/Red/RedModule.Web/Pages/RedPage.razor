@@ -1,4 +1,7 @@
 @page "/red-page"
+@attribute [RenderModeInteractiveServer]
+
+@inject RedGrpcApiClient RedApi;
 
 <PageTitle>Red</PageTitle>
 
@@ -7,3 +10,42 @@
 This page is defined in the <strong>RedModule.Web</strong> library.
 
 <HelloRed />
+
+<h2>Red API</h2>
+
+<p>This component demonstrates showing data loaded from a backend API service.</p>
+
+<label>
+  <input type="text" class="form-control" @bind="_input" />
+</label>
+
+<p>Calls the <code>RedGrpcApi</code> service to get data.</p>
+
+<button type="submit" class="btn btn-primary" @onclick="CallService">Call Service</button>
+
+@if (_isLoading)
+{
+  <p>
+    <em>Loading...</em>
+  </p>
+}
+else if (_data != null)
+{
+  
+  <p>@_data</p>
+}
+
+@code {
+  
+  private string _input = "Red page";
+  private bool _isLoading;
+  private string? _data;
+
+  private async Task CallService()
+  {
+    _isLoading = true;
+    var reply = await RedApi.CallSayHelloAsync(_input);
+    _data = reply.Message;
+    _isLoading = false;
+  }
+}

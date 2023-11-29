@@ -6,6 +6,8 @@ public static class DependencyInjections
 {
     public static IServiceCollection AddRedApiClient(this IServiceCollection services)
     {
+        services.AddSingleton<RedGrpcApiClient>();
+        
         return services;
     }
 }
