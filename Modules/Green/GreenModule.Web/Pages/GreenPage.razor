@@ -1,4 +1,9 @@
 @page "/green-page"
+@* https://youtrack.jetbrains.com/issue/RSRP-494352/Support-rendermode-directive *@
+@* @rendermode InteractiveAuto *@
+@attribute [RenderModeInteractiveServer]
+
+@inject GreenWcfApiClient GreenApi
 
 <PageTitle>Green</PageTitle>
 
@@ -7,6 +12,30 @@
 This page is defined in the <strong>GreenModule.Web</strong> library.
 
 <HelloGreen />
+
+<h2>Green API</h2>
+
+<p>This component demonstrates showing data loaded from a backend API service.</p>
+
+<label>
+  <input type="number" class="form-control" @bind="_input" />
+</label>
+
+<p>Calls the <code>GreenWcfApi</code> service to get data.</p>
+
+<button type="submit" class="btn btn-primary" @onclick="CallService">Call Service</button>
+
+@if (_isLoading)
+{
+  <p>
+    <em>Loading...</em>
+  </p>
+}
+else if (_data != null)
+{
+  
+  <p>@_data</p>
+}
 
 <h2>Counter</h2>
 
@@ -17,10 +46,20 @@ This page is defined in the <strong>GreenModule.Web</strong> library.
 @code {
   
   private int _currentCount = 0;
+  private string? _data;
+  private int _input = 0;
+  private bool _isLoading = false;
 
   private void IncrementCount()
   {
     _currentCount++;
   }
 
+  private async Task CallService()
+  {
+    _isLoading = true;
+    _data = await GreenApi.GetDataAsync(_input);
+    _isLoading = false;
+  }
+  
 }

@@ -2,7 +2,13 @@ using RedModule.ApiService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add service defaults & Aspire components.
+builder.AddServiceDefaults();
+
 // Add services to the container.
+builder.Services.AddProblemDetails();
+
+// Add GRPC Services
 builder.Services.AddGrpc();
 
 var app = builder.Build();

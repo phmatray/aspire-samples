@@ -6,6 +6,8 @@ public static class DependencyInjections
 {
     public static IServiceCollection AddGreenApiClient(this IServiceCollection services)
     {
+        services.AddSingleton<GreenWcfApiClient>();
+        
         return services;
     }
 }

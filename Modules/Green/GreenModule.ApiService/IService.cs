@@ -1,61 +1,56 @@
-﻿using CoreWCF;
-using System;
-using System.Runtime.Serialization;
+﻿namespace GreenModule.ApiService;
 
-namespace GreenModule.ApiService
+[ServiceContract]
+public interface IService
 {
-    [ServiceContract]
-    public interface IService
-    {
-        [OperationContract]
-        string GetData(int value);
+    [OperationContract]
+    string GetData(int value);
 
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+    [OperationContract]
+    CompositeType GetDataUsingDataContract(CompositeType composite);
+}
+
+public class Service : IService
+{
+    public string GetData(int value)
+    {
+        return $"You entered: {value}";
     }
 
-    public class Service : IService
+    public CompositeType GetDataUsingDataContract(CompositeType composite)
     {
-        public string GetData(int value)
+        if (composite == null)
         {
-            return string.Format("You entered: {0}", value);
+            throw new ArgumentNullException(nameof(composite));
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        if (composite.BoolValue)
         {
-            if (composite == null)
-            {
-                throw new ArgumentNullException("composite");
-            }
-
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-
-            return composite;
+            composite.StringValue += "Suffix";
         }
+
+        return composite;
+    }
+}
+
+// Use a data contract as illustrated in the sample below to add composite types to service operations.
+[DataContract]
+public class CompositeType
+{
+    private bool _boolValue = true;
+    private string _stringValue = "Hello ";
+
+    [DataMember]
+    public bool BoolValue
+    {
+        get { return _boolValue; }
+        set { _boolValue = value; }
     }
 
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    [DataContract]
-    public class CompositeType
+    [DataMember]
+    public string StringValue
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        get { return _stringValue; }
+        set { _stringValue = value; }
     }
 }
