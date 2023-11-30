@@ -4,6 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+<!--        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
     </PropertyGroup>
 
 
@@ -20,5 +21,9 @@
       <ProjectReference Include="..\BlueModule.ApiClient\BlueModule.ApiClient.csproj" />
       <ProjectReference Include="..\BlueModule.Domain\BlueModule.Domain.csproj" />
     </ItemGroup>
+
+<!--    <Target Name="PostBuild" AfterTargets="PostBuildEvent">-->
+<!--      <Exec Command="cp ./bin/Debug/BlueModule.Web.1.0.0.nupkg ../../../Host/AspireAppWithMicroFrontends.Web/wwwroot/assemblies/modules" />-->
+<!--    </Target>-->
 
 </Project>
