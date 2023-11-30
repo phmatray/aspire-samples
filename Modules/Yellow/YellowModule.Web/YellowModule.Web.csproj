@@ -4,6 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+<!--        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>-->
     </PropertyGroup>
 
 
@@ -18,5 +19,9 @@
     <ItemGroup>
       <ProjectReference Include="..\YellowModule.ApiClient\YellowModule.ApiClient.csproj" />
     </ItemGroup>
+
+<!--    <Target Name="PostBuild" AfterTargets="PostBuildEvent">-->
+<!--      <Exec Command="cp ./bin/Debug/YellowModule.Web.1.0.0.nupkg ../../../Host/AspireAppWithMicroFrontends.Web/wwwroot/assemblies/modules" />-->
+<!--    </Target>-->
 
 </Project>
