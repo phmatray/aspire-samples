@@ -1,4 +1,6 @@
-var builder = WebApplication.CreateBuilder(args);
+using YellowModule.ApiService.Queries;
+
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add service defaults & Aspire components.
 builder.AddServiceDefaults();
@@ -6,8 +8,12 @@ builder.AddServiceDefaults();
 // Add services to the container.
 builder.Services.AddProblemDetails();
 
-var app = builder.Build();
+builder.Services
+    .AddGraphQLServer()
+    .AddQueryType<GetBookQuery>();
 
-app.MapGet("/", () => "Hello World!");
+WebApplication app = builder.Build();
+
+app.MapGraphQL();
 
 app.Run();
