@@ -36,6 +36,14 @@ var yellowApi = builder
     .WithReference(rabbitMq)
     .WithReference(yellowDb);
 
+// Reverse Proxies
+builder
+    .AddProject<Projects.Web_Bff_Gateway>("bff-gateway")
+    .WithReference(blueApi)
+    .WithReference(greenApi)
+    .WithReference(redApi)
+    .WithReference(yellowApi);
+
 // var grpcUI = builder
 //     .AddContainer("grpcui", "fullstorydev/grpcui")
 //     .WithServiceBinding(8080, 8080, "http")

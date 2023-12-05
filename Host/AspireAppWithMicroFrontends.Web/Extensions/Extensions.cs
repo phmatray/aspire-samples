@@ -1,8 +1,11 @@
 using BlueModule.ApiClient;
+using BlueModule.ApiClient.Extensions;
 using GreenModule.ApiClient;
+using GreenModule.ApiClient.Extensions;
 using RedModule.ApiClient;
 using RedModule.ApiClient.Extensions;
 using YellowModule.ApiClient;
+using YellowModule.ApiClient.Extensions;
 
 namespace AspireAppWithMicroFrontends.Web.Extensions;
 

@@ -1,0 +1,14 @@
+{
+  "solution": {
+    "path": "..\\AspireAppWithMicroFrontends.sln",
+    "projects": [
+      "Host\\AspireAppWithMicroFrontends.AppHost\\AspireAppWithMicroFrontends.AppHost.csproj",
+      "Host\\AspireAppWithMicroFrontends.ServiceDefaults\\AspireAppWithMicroFrontends.ServiceDefaults.csproj",
+      "Host\\AspireAppWithMicroFrontends.Web\\AspireAppWithMicroFrontends.Web.csproj",
+      "Modules\\Red\\RedModule.Web\\RedModule.Web.csproj",
+      "Modules\\Red\\RedModule.Domain\\RedModule.Domain.csproj",
+      "Modules\\Red\\RedModule.ApiService\\RedModule.ApiService.csproj",
+      "Modules\\Red\\RedModule.ApiClient\\RedModule.ApiClient.csproj"
+    ]
+  }
+}
