@@ -4,7 +4,8 @@ namespace GreenModule.ApiClient;
 
 public class GreenWcfApiClient
 {
-    // TODO: Replace localhost with the actual host name from environment variables
+    // http://localhost:5032
+    // http://green-api
     private readonly ServiceClient _client = new(
         ServiceClient.EndpointConfiguration.BasicHttpBinding_IService,
         "http://localhost:5032/Service.svc");
