@@ -14,9 +14,7 @@ public static class Extensions
 {
     public static IHostApplicationBuilder AddServiceDefaults(this IHostApplicationBuilder builder)
     {
-        builder.ConfigureOpenTelemetry();
-
-        builder.AddDefaultHealthChecks();
+        builder.AddBasicServiceDefaults();
 
         builder.Services.AddServiceDiscovery();
 
@@ -28,6 +26,22 @@ public static class Extensions
             // Turn on service discovery by default
             http.UseServiceDiscovery();
         });
+
+        return builder;
+    }
+
+    /// <summary>
+    /// Adds the services except for making outgoing HTTP calls.
+    /// </summary>
+    /// <remarks>
+    /// This allows for things like Polly to be trimmed out of the app if it isn't used.
+    /// </remarks>
+    public static IHostApplicationBuilder AddBasicServiceDefaults(this IHostApplicationBuilder builder)
+    {
+        // Default health checks assume the event bus and self health checks
+        builder.AddDefaultHealthChecks();
+
+        builder.ConfigureOpenTelemetry();
 
         return builder;
     }

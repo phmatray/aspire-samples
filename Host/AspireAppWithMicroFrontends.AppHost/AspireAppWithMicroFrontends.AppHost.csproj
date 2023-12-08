@@ -13,6 +13,7 @@
         <ProjectReference Include="..\..\Modules\Green\GreenModule.ApiService\GreenModule.ApiService.csproj" />
         <ProjectReference Include="..\..\Modules\Red\RedModule.ApiService\RedModule.ApiService.csproj" />
         <ProjectReference Include="..\..\Modules\Yellow\YellowModule.ApiService\YellowModule.ApiService.csproj" />
+        <ProjectReference Include="..\..\Web.Bff.Gateway\Web.Bff.Gateway.csproj" />
         <ProjectReference Include="..\AspireAppWithMicroFrontends.Web\AspireAppWithMicroFrontends.Web.csproj"/>
     </ItemGroup>
 

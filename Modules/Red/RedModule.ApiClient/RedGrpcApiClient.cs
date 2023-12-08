@@ -1,16 +1,10 @@
-﻿using System.Threading.Channels;
-using Grpc.Core;
-using Grpc.Net.Client;
+﻿namespace RedModule.ApiClient;
 
-namespace RedModule.ApiClient;
-
-public class RedGrpcApiClient
+public class RedGrpcApiClient(Greeter.GreeterClient greeterClient)
 {
     public async Task<HelloReply> CallSayHelloAsync(string name)
     {
-        using var channel = GrpcChannel.ForAddress("http://localhost:5233");
-        var client = new Greeter.GreeterClient(channel);
-        var reply = await client.SayHelloAsync(new HelloRequest { Name = name });
+        var reply = await greeterClient.SayHelloAsync(new HelloRequest { Name = name });
         return reply;
     }
 }

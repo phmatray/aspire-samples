@@ -1,10 +1,4 @@
-using AspireAppWithMicroFrontends.Web;
 using AspireAppWithMicroFrontends.Web.Components;
-using AspireAppWithMicroFrontends.Web.Extensions;
-using BlueModule.ApiClient;
-using GreenModule.ApiClient;
-using RedModule.ApiClient;
-using YellowModule.ApiClient;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 IServiceCollection services = builder.Services;
@@ -20,11 +14,7 @@ services
 
 services.AddOutputCache();
 
-// Add Module API Clients
-services.AddBlueApiClient();
-services.AddGreenApiClient();
-services.AddRedApiClient();
-services.AddYellowApiClient();
+builder.AddApplicationServices();
 
 WebApplication app = builder.Build();
 

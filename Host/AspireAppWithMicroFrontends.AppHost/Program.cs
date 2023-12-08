@@ -1,29 +1,59 @@
 IDistributedApplicationBuilder builder = DistributedApplication.CreateBuilder(args);
 
-var cache = builder.AddRedisContainer("cache");
-var db = builder.AddPostgresContainer("db");
+var redis = builder.AddRedisContainer("redis");
+var rabbitMq = builder.AddRabbitMQContainer("EventBus");
+var messageBus = builder.AddRabbitMQContainer("messagebus");
 
-// Blue Modules
-var blueApiService = builder
-    .AddProject<Projects.BlueModule_ApiService>("blue-api-service");
+var postgres = builder.AddPostgresContainer("postgres");
 
-// Green Modules
-var greenApiService = builder
-    .AddProject<Projects.GreenModule_ApiService>("green-api-service");
+var blueDb = postgres.AddDatabase("BlueDB");
+var greenDb = postgres.AddDatabase("GreenDB");
+var redDb = postgres.AddDatabase("RedDB");
+var yellowDb = postgres.AddDatabase("YellowDB");
 
-// Red Modules
-var redApiService = builder
-    .AddProject<Projects.RedModule_ApiService>("red-api-service");
+// Services
+var blueApi = builder
+    .AddProject<Projects.BlueModule_ApiService>("blue-api")
+    .WithReference(redis)
+    .WithReference(rabbitMq)
+    .WithReference(blueDb);
 
-// Yellow Modules
-var yellowApiService = builder
-    .AddProject<Projects.YellowModule_ApiService>("yellow-api-service");
+var greenApi = builder
+    .AddProject<Projects.GreenModule_ApiService>("green-api")
+    .WithReference(redis)
+    .WithReference(rabbitMq)
+    .WithReference(greenDb);
+
+var redApi = builder
+    .AddProject<Projects.RedModule_ApiService>("red-api")
+    .WithReference(redis)
+    .WithReference(rabbitMq)
+    .WithReference(redDb);
+
+var yellowApi = builder
+    .AddProject<Projects.YellowModule_ApiService>("yellow-api")
+    .WithReference(redis)
+    .WithReference(rabbitMq)
+    .WithReference(yellowDb);
+
+// Reverse Proxies
+builder
+    .AddProject<Projects.Web_Bff_Gateway>("bff-gateway")
+    .WithReference(blueApi)
+    .WithReference(greenApi)
+    .WithReference(redApi)
+    .WithReference(yellowApi);
+
+// var grpcUI = builder
+//     .AddContainer("grpcui", "fullstorydev/grpcui")
+//     .WithServiceBinding(8080, 8080, "http")
+//     .WithEnvironment("GRPCUI_SERVER", redApi.GetEndpoint("red-api"));
 
 // Web Frontend
 builder.AddProject<Projects.AspireAppWithMicroFrontends_Web>("webfrontend")
-    .WithReference(blueApiService)
-    .WithReference(greenApiService)
-    .WithReference(redApiService)
-    .WithReference(yellowApiService);
+    .WithReference(blueApi)
+    .WithReference(greenApi)
+    .WithReference(redApi)
+    .WithReference(yellowApi);
 
 builder.Build().Run();

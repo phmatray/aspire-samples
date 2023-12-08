@@ -1,8 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GreenModule.ApiClient;
+namespace GreenModule.ApiClient.Extensions;
 
-public static class DependencyInjections
+public static class Extensions
 {
     public static IServiceCollection AddGreenApiClient(this IServiceCollection services)
     {
