@@ -2,38 +2,26 @@
 
 <PageTitle>Weather</PageTitle>
 
-<h1>Weather</h1>
+<MudContainer Class="mt-4 px-8" MaxWidth="MaxWidth.False">
+    <MudText Typo="Typo.h4">Weather</MudText>
+    <MudText Typo="Typo.subtitle1" Class="mb-4">This component demonstrates showing data.</MudText>
 
-<p>This component demonstrates showing data.</p>
-
-@if (forecasts == null)
-{
-    <p><em>Loading...</em></p>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var forecast in forecasts)
-            {
-                <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-}
+    @if (forecasts == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <MudDataGrid Items="forecasts">
+            <Columns>
+                <PropertyColumn Property="x => x.Date" Title="Date" />
+                <PropertyColumn Property="x => x.TemperatureC" Title="Temp. (C)" />
+                <PropertyColumn Property="x => x.TemperatureF" Title="Temp. (F)" />
+                <PropertyColumn Property="x => x.Summary" Title="Summary" />
+            </Columns>
+        </MudDataGrid>
+    }
+</MudContainer>
 
 @code {
     private WeatherForecast[]? forecasts;

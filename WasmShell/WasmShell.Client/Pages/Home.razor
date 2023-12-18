@@ -1,0 +1,96 @@
+﻿@page "/"
+@inject NavigationManager NavManager
+
+<PageTitle>Home</PageTitle>
+
+<MudContainer Class="mt-4 px-8" MaxWidth="MaxWidth.False">
+    <MudText Typo="Typo.h4">Home</MudText>
+    <MudBreadcrumbs Items="_breadcrumbs"/>
+
+    <MudGrid>
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;"></MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;"></MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="12" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;"></MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6">
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;"></MudPaper>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;"></MudPaper>
+                </MudItem>
+            </MudGrid>
+        </MudItem>
+        <MudItem xs="12" sm="6">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 100%"></MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;"></MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="6" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;"></MudPaper>
+        </MudItem>
+        <MudItem xs="12" sm="12" md="4">
+            <MudPaper Elevation="2" Class="pa-4" Style="height: 200px;"></MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudContainer>
+
+@code
+{
+
+    private List<BreadcrumbItem> _breadcrumbs = [];
+    
+    protected override void OnInitialized()
+    {
+        NavManager.LocationChanged += HandleLocationChanged;
+        UpdateBreadcrumbs(NavManager.Uri);
+    }
+
+    private void HandleLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        UpdateBreadcrumbs(e.Location);
+        StateHasChanged();
+    }
+
+    private void UpdateBreadcrumbs(string uri)
+    {
+        // Clear existing breadcrumbs
+        _breadcrumbs.Clear();
+
+        // Get the path from the URI
+        var path = new Uri(uri).AbsolutePath; 
+
+        // Check if it's the root URL
+        if (path == "/")
+        {
+            _breadcrumbs.Add(new BreadcrumbItem("Home", href: "/"));
+        }
+        else
+        {
+            // Add the Home breadcrumb
+            _breadcrumbs.Add(new BreadcrumbItem("Home", href: "/"));
+
+            // Process additional path segments
+            var segments = path.Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+            string currentPath = "/";
+            foreach (var segment in segments)
+            {
+                currentPath += $"{segment}/";
+                _breadcrumbs.Add(new BreadcrumbItem(segment, href: currentPath));
+            }
+        }
+    }
+
+    public void Dispose()
+    {
+        NavManager.LocationChanged -= HandleLocationChanged;
+    }
+
+}
