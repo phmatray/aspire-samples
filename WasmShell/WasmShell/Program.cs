@@ -9,8 +9,12 @@ using WasmShell.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add service defaults & Aspire components.
+builder.AddServiceDefaults();
+
 // Add services to the container.
-builder.Services.AddRazorComponents()
+builder.Services
+    .AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
 
 builder.Services.AddCascadingAuthenticationState();
@@ -64,9 +68,17 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(Counter).Assembly);
+    .AddAdditionalAssemblies(
+        typeof(Counter).Assembly,
+        typeof(BlueModule.Web.Components.HelloBlue).Assembly,
+        typeof(GreenModule.Web.Components.HelloGreen).Assembly,
+        typeof(RedModule.Web.Components.HelloRed).Assembly,
+        typeof(YellowModule.Web.Components.HelloYellow).Assembly);
 
 // Add additional endpoints required by the Identity /Account Razor components.
 app.MapAdditionalIdentityEndpoints();
+
+// Add .NET Aspire endpoints.
+app.MapDefaultEndpoints();
 
 app.Run();

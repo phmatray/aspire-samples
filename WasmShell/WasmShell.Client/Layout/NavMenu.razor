@@ -3,21 +3,28 @@
 @inject NavigationManager NavigationManager
 
 <MudNavMenu>
-    <MudNavLink href="" Match="NavLinkMatch.All">
-        <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-    </MudNavLink>
+    <MudNavLink href="" Match="NavLinkMatch.All" Icon="home">Home</MudNavLink>
 
-    <MudNavLink href="counter">
+    <MudNavLink href="counter" Icon="plus">
         <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
     </MudNavLink>
 
-    <MudNavLink href="weather">
+    <MudNavLink href="weather" Icon="cloud">
         <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
     </MudNavLink>
+    
+    <MudNavLink href="kanban" Icon="list">
+        <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Kanban
+    </MudNavLink>
 
-    <MudNavLink href="auth">
+    <MudNavLink href="auth" Icon="lock">
         <span class="bi bi-lock-nav-menu" aria-hidden="true"></span> Auth Required
     </MudNavLink>
+    
+    <NavMenuBlue />
+    <NavMenuGreen />
+    <NavMenuRed />
+    <NavMenuYellow />
 
     <AuthorizeView>
         <Authorized>

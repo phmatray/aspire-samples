@@ -1,3 +1,4 @@
+using BlueModule.ApiClient.Extensions;
 using WasmShell.Client;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -8,6 +9,8 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.Services
     .AddMudServices()
     .AddMudBlazorDialog();
+
+builder.Services.AddBlueApiClient();
 
 builder.Services.AddAuthorizationCore();
 builder.Services.AddCascadingAuthenticationState();
