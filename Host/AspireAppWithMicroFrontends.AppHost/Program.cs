@@ -57,7 +57,7 @@ builder.AddProject<Projects.AspireAppWithMicroFrontends_Web>("webfrontend")
     .WithReference(yellowApi);
 
 // Web Shell
-builder.AddProject<Projects.WebShell>("webshell")
+builder.AddProject<Projects.WasmShell>("webshell")
     .WithReference(blueApi)
     .WithReference(greenApi)
     .WithReference(redApi)
