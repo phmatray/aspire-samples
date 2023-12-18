@@ -1,5 +1,6 @@
 using AspireAppWithMicroFrontends.Web.Components;
 using AspireAppWithMicroFrontends.Web.Extensions;
+using MudBlazor.Services;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 IServiceCollection services = builder.Services;
@@ -11,6 +12,9 @@ builder.AddServiceDefaults();
 services
     .AddRazorComponents()
     .AddInteractiveServerComponents();
+
+// Add MudBlazor
+services.AddMudServices();
 
 services.AddOutputCache();
 
