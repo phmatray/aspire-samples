@@ -1,10 +1,11 @@
-﻿namespace RedModule.ApiClient;
-
-public class RedGrpcApiClient(Greeter.GreeterClient greeterClient)
+﻿namespace RedModule.ApiClient
 {
-    public async Task<HelloReply> CallSayHelloAsync(string name)
+    public class RedGrpcApiClient(Greeter.GreeterClient greeterClient)
     {
-        var reply = await greeterClient.SayHelloAsync(new HelloRequest { Name = name });
-        return reply;
+        public async Task<HelloReply> CallSayHelloAsync(string name)
+        {
+            HelloReply reply = await greeterClient.SayHelloAsync(new HelloRequest { Name = name });
+            return reply;
+        }
     }
 }

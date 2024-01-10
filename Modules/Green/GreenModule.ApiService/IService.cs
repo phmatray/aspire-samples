@@ -1,11 +1,12 @@
-﻿namespace GreenModule.ApiService;
-
-[ServiceContract]
-public interface IService
+﻿namespace GreenModule.ApiService
 {
-    [OperationContract]
-    string GetData(int value);
+    [ServiceContract]
+    public interface IService
+    {
+        [OperationContract]
+        string GetData(int value);
 
-    [OperationContract]
-    CompositeType GetDataUsingDataContract(CompositeType composite);
+        [OperationContract]
+        CompositeType GetDataUsingDataContract(CompositeType composite);
+    }
 }

@@ -1,12 +1,13 @@
 ﻿using System.Net.Http.Json;
 using BlueModule.Domain;
 
-namespace BlueModule.ApiClient;
-
-public class WeatherApiClient(HttpClient httpClient)
+namespace BlueModule.ApiClient
 {
-    public async Task<WeatherForecast[]> GetWeatherAsync()
+    public class WeatherApiClient(HttpClient httpClient)
     {
-        return await httpClient.GetFromJsonAsync<WeatherForecast[]>("/weatherforecast") ?? [];
+        public async Task<WeatherForecast[]> GetWeatherAsync()
+        {
+            return await httpClient.GetFromJsonAsync<WeatherForecast[]>("/weatherforecast") ?? [];
+        }
     }
 }

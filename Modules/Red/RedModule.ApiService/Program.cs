@@ -1,6 +1,6 @@
 using RedModule.ApiService.Services;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add service defaults & Aspire components.
 builder.AddServiceDefaults();
@@ -12,8 +12,8 @@ builder.Services.AddProblemDetails();
 builder.Services.AddGrpc();
 builder.Services.AddGrpcReflection();
 
-var app = builder.Build();
-var env = app.Environment;
+WebApplication app = builder.Build();
+IWebHostEnvironment env = app.Environment;
 
 // Configure the HTTP request pipeline.
 app.MapGrpcService<GreeterService>();

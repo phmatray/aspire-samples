@@ -12,29 +12,29 @@ IDistributedApplicationBuilder builder = DistributedApplication.CreateBuilder(ar
 // var yellowDb = postgres.AddDatabase("YellowDB");
 
 // Services
-var blueApi = builder
+IResourceBuilder<ProjectResource> blueApi = builder
     .AddProject<Projects.BlueModule_ApiService>("blue-api");
-    // .WithReference(redis)
-    // .WithReference(rabbitMq)
-    // .WithReference(blueDb);
+// .WithReference(redis)
+// .WithReference(rabbitMq)
+// .WithReference(blueDb);
 
-var greenApi = builder
+IResourceBuilder<ProjectResource> greenApi = builder
     .AddProject<Projects.GreenModule_ApiService>("green-api");
-    // .WithReference(redis)
-    // .WithReference(rabbitMq)
-    // .WithReference(greenDb);
+// .WithReference(redis)
+// .WithReference(rabbitMq)
+// .WithReference(greenDb);
 
-var redApi = builder
+IResourceBuilder<ProjectResource> redApi = builder
     .AddProject<Projects.RedModule_ApiService>("red-api");
-    // .WithReference(redis)
-    // .WithReference(rabbitMq)
-    // .WithReference(redDb);
+// .WithReference(redis)
+// .WithReference(rabbitMq)
+// .WithReference(redDb);
 
-var yellowApi = builder
+IResourceBuilder<ProjectResource> yellowApi = builder
     .AddProject<Projects.YellowModule_ApiService>("yellow-api");
-    // .WithReference(redis)
-    // .WithReference(rabbitMq)
-    // .WithReference(yellowDb);
+// .WithReference(redis)
+// .WithReference(rabbitMq)
+// .WithReference(yellowDb);
 
 // Reverse Proxies
 builder

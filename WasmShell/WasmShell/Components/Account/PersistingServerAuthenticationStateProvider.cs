@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Server;
@@ -7,64 +8,65 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
 using WasmShell.Client;
 
-namespace WasmShell.Components.Account;
-
-// This is a server-side AuthenticationStateProvider that uses PersistentComponentState to flow the
-// authentication state to the client which is then fixed for the lifetime of the WebAssembly application.
-internal sealed class PersistingServerAuthenticationStateProvider : ServerAuthenticationStateProvider, IDisposable
+namespace WasmShell.Components.Account
 {
-    private readonly PersistentComponentState state;
-    private readonly IdentityOptions options;
-
-    private readonly PersistingComponentStateSubscription subscription;
-
-    private Task<AuthenticationState>? authenticationStateTask;
-
-    public PersistingServerAuthenticationStateProvider(
-        PersistentComponentState persistentComponentState,
-        IOptions<IdentityOptions> optionsAccessor)
+    // This is a server-side AuthenticationStateProvider that uses PersistentComponentState to flow the
+    // authentication state to the client which is then fixed for the lifetime of the WebAssembly application.
+    internal sealed class PersistingServerAuthenticationStateProvider : ServerAuthenticationStateProvider, IDisposable
     {
-        state = persistentComponentState;
-        options = optionsAccessor.Value;
+        private readonly PersistentComponentState _state;
+        private readonly IdentityOptions _options;
 
-        AuthenticationStateChanged += OnAuthenticationStateChanged;
-        subscription = state.RegisterOnPersisting(OnPersistingAsync, RenderMode.InteractiveWebAssembly);
-    }
+        private readonly PersistingComponentStateSubscription _subscription;
 
-    private void OnAuthenticationStateChanged(Task<AuthenticationState> task)
-    {
-        authenticationStateTask = task;
-    }
+        private Task<AuthenticationState>? _authenticationStateTask;
 
-    private async Task OnPersistingAsync()
-    {
-        if (authenticationStateTask is null)
+        public PersistingServerAuthenticationStateProvider(
+            PersistentComponentState persistentComponentState,
+            IOptions<IdentityOptions> optionsAccessor)
         {
-            throw new UnreachableException($"Authentication state not set in {nameof(OnPersistingAsync)}().");
+            _state = persistentComponentState;
+            _options = optionsAccessor.Value;
+
+            AuthenticationStateChanged += OnAuthenticationStateChanged;
+            _subscription = _state.RegisterOnPersisting(OnPersistingAsync, RenderMode.InteractiveWebAssembly);
         }
 
-        var authenticationState = await authenticationStateTask;
-        var principal = authenticationState.User;
-
-        if (principal.Identity?.IsAuthenticated == true)
+        private void OnAuthenticationStateChanged(Task<AuthenticationState> task)
         {
-            var userId = principal.FindFirst(options.ClaimsIdentity.UserIdClaimType)?.Value;
-            var email = principal.FindFirst(options.ClaimsIdentity.EmailClaimType)?.Value;
+            _authenticationStateTask = task;
+        }
 
-            if (userId != null && email != null)
+        private async Task OnPersistingAsync()
+        {
+            if (_authenticationStateTask is null)
             {
-                state.PersistAsJson(nameof(UserInfo), new UserInfo
+                throw new UnreachableException($"Authentication state not set in {nameof(OnPersistingAsync)}().");
+            }
+
+            AuthenticationState authenticationState = await _authenticationStateTask;
+            ClaimsPrincipal principal = authenticationState.User;
+
+            if (principal.Identity?.IsAuthenticated == true)
+            {
+                string? userId = principal.FindFirst(_options.ClaimsIdentity.UserIdClaimType)?.Value;
+                string? email = principal.FindFirst(_options.ClaimsIdentity.EmailClaimType)?.Value;
+
+                if (userId != null && email != null)
                 {
-                    UserId = userId,
-                    Email = email,
-                });
+                    _state.PersistAsJson(nameof(UserInfo), new UserInfo
+                    {
+                        UserId = userId,
+                        Email = email,
+                    });
+                }
             }
         }
-    }
 
-    public void Dispose()
-    {
-        subscription.Dispose();
-        AuthenticationStateChanged -= OnAuthenticationStateChanged;
+        public void Dispose()
+        {
+            _subscription.Dispose();
+            AuthenticationStateChanged -= OnAuthenticationStateChanged;
+        }
     }
 }

@@ -1,13 +1,14 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BlueModule.ApiClient.Extensions;
-
-public static class Extensions
+namespace BlueModule.ApiClient.Extensions
 {
-    public static IServiceCollection AddBlueApiClient(this IServiceCollection services)
+    public static class Extensions
     {
-        services.AddHttpClient<WeatherApiClient>(client => client.BaseAddress = new Uri("http://blue-api"));
-        
-        return services;
+        public static IServiceCollection AddBlueApiClient(this IServiceCollection services)
+        {
+            services.AddHttpClient<WeatherApiClient>(client => client.BaseAddress = new Uri("http://blue-api"));
+
+            return services;
+        }
     }
 }

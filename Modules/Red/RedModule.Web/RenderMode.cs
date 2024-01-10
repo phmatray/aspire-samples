@@ -1,22 +1,23 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
-namespace RedModule.Web;
-
-public sealed class RenderModeInteractiveServer : RenderModeAttribute
+namespace RedModule.Web
 {
-    public override IComponentRenderMode Mode
-        => RenderMode.InteractiveServer;
-}
+    public sealed class RenderModeInteractiveServer : RenderModeAttribute
+    {
+        public override IComponentRenderMode Mode
+            => RenderMode.InteractiveServer;
+    }
 
-public sealed class RenderModeInteractiveAuto : RenderModeAttribute
-{
-    public override IComponentRenderMode Mode
-        => RenderMode.InteractiveAuto;
-}
+    public sealed class RenderModeInteractiveAuto : RenderModeAttribute
+    {
+        public override IComponentRenderMode Mode
+            => RenderMode.InteractiveAuto;
+    }
 
-public sealed class RenderModeInteractiveWebAssembly : RenderModeAttribute
-{
-    public override IComponentRenderMode Mode
-        => RenderMode.InteractiveWebAssembly;
+    public sealed class RenderModeInteractiveWebAssembly : RenderModeAttribute
+    {
+        public override IComponentRenderMode Mode
+            => RenderMode.InteractiveWebAssembly;
+    }
 }

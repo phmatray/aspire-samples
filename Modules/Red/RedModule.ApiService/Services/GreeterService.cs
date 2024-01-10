@@ -1,18 +1,19 @@
 using Grpc.Core;
 using RedModule.ApiService;
 
-namespace RedModule.ApiService.Services;
-
-public class GreeterService(ILogger<GreeterService> logger)
-    : Greeter.GreeterBase
+namespace RedModule.ApiService.Services
 {
-    public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
+    public class GreeterService(ILogger<GreeterService> logger)
+        : Greeter.GreeterBase
     {
-        logger.LogInformation("Saying hello to {Name}", request.Name);
-        
-        return Task.FromResult(new HelloReply
+        public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
         {
-            Message = "Hello " + request.Name
-        });
+            logger.LogInformation("Saying hello to {Name}", request.Name);
+
+            return Task.FromResult(new HelloReply
+            {
+                Message = "Hello " + request.Name
+            });
+        }
     }
 }

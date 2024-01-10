@@ -1,13 +1,14 @@
-﻿namespace YellowModule.Domain;
-
-public class Book
+﻿namespace YellowModule.Domain
 {
-    public string Title { get; set; }
+    public record Book
+    {
+        public required string Title { get; init; }
 
-    public Author Author { get; set; }
-}
+        public required Author Author { get; init; }
+    }
 
-public class Author
-{
-    public string Name { get; set; }
+    public record Author
+    {
+        public required string Name { get; init; }
+    }
 }

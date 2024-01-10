@@ -1,18 +1,19 @@
 using YellowModule.Domain;
 
-namespace YellowModule.ApiService.Queries;
-
-public class GetBookQuery
+namespace YellowModule.ApiService.Queries
 {
-    public Book GetBook()
+    public class GetBookQuery
     {
-        return new Book
+        public Book GetBook()
         {
-            Title = "C# in depth.",
-            Author = new Author
+            return new Book
             {
-                Name = "Jon Skeet"
-            }
-        };
+                Title = "C# in depth.",
+                Author = new Author
+                {
+                    Name = "Jon Skeet"
+                }
+            };
+        }
     }
 }

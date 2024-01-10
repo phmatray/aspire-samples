@@ -1,24 +1,22 @@
-namespace GreenModule.ApiService;
-
-public class Service : IService
+namespace GreenModule.ApiService
 {
-    public string GetData(int value)
+    public class Service : IService
     {
-        return $"You entered: {value}";
-    }
-
-    public CompositeType GetDataUsingDataContract(CompositeType composite)
-    {
-        if (composite == null)
+        public string GetData(int value)
         {
-            throw new ArgumentNullException(nameof(composite));
+            return $"You entered: {value}";
         }
 
-        if (composite.BoolValue)
+        public CompositeType GetDataUsingDataContract(CompositeType composite)
         {
-            composite.StringValue += "Suffix";
-        }
+            ArgumentNullException.ThrowIfNull(composite);
 
-        return composite;
+            if (composite.BoolValue)
+            {
+                composite.StringValue += "Suffix";
+            }
+
+            return composite;
+        }
     }
 }

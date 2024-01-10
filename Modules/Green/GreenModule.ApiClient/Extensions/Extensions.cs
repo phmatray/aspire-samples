@@ -1,13 +1,14 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace GreenModule.ApiClient.Extensions;
-
-public static class Extensions
+namespace GreenModule.ApiClient.Extensions
 {
-    public static IServiceCollection AddGreenApiClient(this IServiceCollection services)
+    public static class Extensions
     {
-        services.AddSingleton<GreenWcfApiClient>();
-        
-        return services;
+        public static IServiceCollection AddGreenApiClient(this IServiceCollection services)
+        {
+            services.AddSingleton<GreenWcfApiClient>();
+
+            return services;
+        }
     }
 }

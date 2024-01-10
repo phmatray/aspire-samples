@@ -1,5 +1,5 @@
-﻿var builder = WebApplication.CreateBuilder();
-var services = builder.Services;
+﻿WebApplicationBuilder builder = WebApplication.CreateBuilder();
+IServiceCollection services = builder.Services;
 
 // Add service defaults & Aspire components.
 builder.AddServiceDefaults();
@@ -12,14 +12,14 @@ services.AddServiceModelServices();
 services.AddServiceModelMetadata();
 services.AddSingleton<IServiceBehavior, UseRequestHeadersForMetadataAddressBehavior>();
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 app.UseServiceModel(serviceBuilder =>
 {
     serviceBuilder.AddService<Service>();
     serviceBuilder.AddServiceEndpoint<Service, IService>(new BasicHttpBinding(), "/Service.svc");
-    
-    var serviceMetadataBehavior = app.Services.GetRequiredService<ServiceMetadataBehavior>();
+
+    ServiceMetadataBehavior serviceMetadataBehavior = app.Services.GetRequiredService<ServiceMetadataBehavior>();
     serviceMetadataBehavior.HttpsGetEnabled = true;
 });
 

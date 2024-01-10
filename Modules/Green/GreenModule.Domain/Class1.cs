@@ -1,5 +1,4 @@
-﻿namespace GreenModule.Domain;
-
-public class Class1
+﻿namespace GreenModule.Domain
 {
+    public class Class1;
 }
