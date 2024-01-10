@@ -12,18 +12,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MudBlazor" Version="6.11.1" />
+    <PackageReference Include="MudBlazor" Version="6.12.0" />
     <ProjectReference Include="..\..\Host\AspireAppWithMicroFrontends.ServiceDefaults\AspireAppWithMicroFrontends.ServiceDefaults.csproj" />
     <ProjectReference Include="..\..\Modules\Blue\BlueModule.Web\BlueModule.Web.csproj" />
     <ProjectReference Include="..\..\Modules\Green\GreenModule.Web\GreenModule.Web.csproj" />
     <ProjectReference Include="..\..\Modules\Red\RedModule.Web\RedModule.Web.csproj" />
     <ProjectReference Include="..\..\Modules\Yellow\YellowModule.Web\YellowModule.Web.csproj" />
     <ProjectReference Include="..\WasmShell.Client\WasmShell.Client.csproj" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
