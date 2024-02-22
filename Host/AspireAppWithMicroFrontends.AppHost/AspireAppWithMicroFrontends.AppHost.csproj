@@ -9,18 +9,17 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\Modules\Blue\BlueModule.ApiService\BlueModule.ApiService.csproj" />
-        <ProjectReference Include="..\..\Modules\Green\GreenModule.ApiService\GreenModule.ApiService.csproj" />
-        <ProjectReference Include="..\..\Modules\Red\RedModule.ApiService\RedModule.ApiService.csproj" />
-        <ProjectReference Include="..\..\Modules\Yellow\YellowModule.ApiService\YellowModule.ApiService.csproj" />
-        <ProjectReference Include="..\..\WasmShell\WasmShell\WasmShell.csproj" />
-        <ProjectReference Include="..\..\Web.Bff.Gateway\Web.Bff.Gateway.csproj" />
-        <ProjectReference Include="..\..\WebShell\WebShell\WebShell.csproj" />
-        <ProjectReference Include="..\AspireAppWithMicroFrontends.Web\AspireAppWithMicroFrontends.Web.csproj"/>
+      <ProjectReference Include="..\..\Modules\Blue\BlueModule.ApiService\BlueModule.ApiService.csproj" />
+      <ProjectReference Include="..\..\Modules\Green\GreenModule.ApiService\GreenModule.ApiService.csproj" />
+      <ProjectReference Include="..\..\Modules\Red\RedModule.ApiService\RedModule.ApiService.csproj" />
+      <ProjectReference Include="..\..\Modules\Yellow\YellowModule.ApiService\YellowModule.ApiService.csproj" />
+      <ProjectReference Include="..\..\WasmShell\WasmShell\WasmShell.csproj" />
+      <ProjectReference Include="..\..\Web.Bff.Gateway\Web.Bff.Gateway.csproj" />
+      <ProjectReference Include="..\AspireAppWithMicroFrontends.Web\AspireAppWithMicroFrontends.Web.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Aspire.Hosting" Version="8.0.0-preview.2.23619.3" />
+        <PackageReference Include="Aspire.Hosting" Version="8.0.0-preview.3.24105.21" />
     </ItemGroup>
 
 </Project>
