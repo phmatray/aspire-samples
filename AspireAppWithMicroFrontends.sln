@@ -1,10 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAppWithMicroFrontends.AppHost", "Host\AspireAppWithMicroFrontends.AppHost\AspireAppWithMicroFrontends.AppHost.csproj", "{7A02A1AA-A943-4919-AE82-D09B916F657A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAppWithMicroFrontends.AppHost", "src\Host\AspireAppWithMicroFrontends.AppHost\AspireAppWithMicroFrontends.AppHost.csproj", "{7A02A1AA-A943-4919-AE82-D09B916F657A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAppWithMicroFrontends.ServiceDefaults", "Host\AspireAppWithMicroFrontends.ServiceDefaults\AspireAppWithMicroFrontends.ServiceDefaults.csproj", "{6ABE02BC-C1C3-4332-B116-D229CA83500E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAppWithMicroFrontends.ServiceDefaults", "src\Host\AspireAppWithMicroFrontends.ServiceDefaults\AspireAppWithMicroFrontends.ServiceDefaults.csproj", "{6ABE02BC-C1C3-4332-B116-D229CA83500E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAppWithMicroFrontends.Web", "Host\AspireAppWithMicroFrontends.Web\AspireAppWithMicroFrontends.Web.csproj", "{C10EF983-BF6B-4244-A2D6-55F3326981A0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspireAppWithMicroFrontends.Web", "src\Host\AspireAppWithMicroFrontends.Web\AspireAppWithMicroFrontends.Web.csproj", "{C10EF983-BF6B-4244-A2D6-55F3326981A0}"
 EndProject
 
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{F18A45B2-12A0-4874-BBDB-A75530837490}"
@@ -20,54 +20,61 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Red", "Red", "{B72BEED3-B51D-4DE2-AC40-66AB96FDA03B}"
 EndProject
 
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModule.Web", "Modules\Blue\BlueModule.Web\BlueModule.Web.csproj", "{DB91239B-4E5B-4EE9-A999-AB7612434513}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModule.Web", "src\Modules\Blue\BlueModule.Web\BlueModule.Web.csproj", "{DB91239B-4E5B-4EE9-A999-AB7612434513}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModule.Domain", "Modules\Blue\BlueModule.Domain\BlueModule.Domain.csproj", "{025EDD3F-D009-4B37-BF53-96DD78FCE283}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModule.Domain", "src\Modules\Blue\BlueModule.Domain\BlueModule.Domain.csproj", "{025EDD3F-D009-4B37-BF53-96DD78FCE283}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModule.ApiService", "Modules\Blue\BlueModule.ApiService\BlueModule.ApiService.csproj", "{7054490F-02E8-4FC9-B8F3-A07126B1D384}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModule.ApiService", "src\Modules\Blue\BlueModule.ApiService\BlueModule.ApiService.csproj", "{7054490F-02E8-4FC9-B8F3-A07126B1D384}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModule.ApiClient", "Modules\Blue\BlueModule.ApiClient\BlueModule.ApiClient.csproj", "{2B8827BE-8090-47FE-AD2D-B8774840ECB7}"
-EndProject
-
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenModule.Web", "Modules\Green\GreenModule.Web\GreenModule.Web.csproj", "{32DC6E09-3A4B-4E74-853E-A6509E79819A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenModule.Domain", "Modules\Green\GreenModule.Domain\GreenModule.Domain.csproj", "{01C7822F-D068-4C5A-88D1-B5AAD8B10AAD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenModule.ApiService", "Modules\Green\GreenModule.ApiService\GreenModule.ApiService.csproj", "{E8137BE9-2683-4B8F-A46B-49B31F2F573A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenModule.ApiClient", "Modules\Green\GreenModule.ApiClient\GreenModule.ApiClient.csproj", "{7C2C2FAD-DF82-47C6-A5E1-6D4188B2C104}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlueModule.ApiClient", "src\Modules\Blue\BlueModule.ApiClient\BlueModule.ApiClient.csproj", "{2B8827BE-8090-47FE-AD2D-B8774840ECB7}"
 EndProject
 
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedModule.Web", "Modules\Red\RedModule.Web\RedModule.Web.csproj", "{4548CB12-7A1B-4C3A-B2AC-7F09F5C2588D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenModule.Web", "src\Modules\Green\GreenModule.Web\GreenModule.Web.csproj", "{32DC6E09-3A4B-4E74-853E-A6509E79819A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedModule.Domain", "Modules\Red\RedModule.Domain\RedModule.Domain.csproj", "{0B499C64-8994-4610-BF82-363E71237898}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenModule.Domain", "src\Modules\Green\GreenModule.Domain\GreenModule.Domain.csproj", "{01C7822F-D068-4C5A-88D1-B5AAD8B10AAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedModule.ApiService", "Modules\Red\RedModule.ApiService\RedModule.ApiService.csproj", "{ACE5D7AE-677D-495C-9D4D-36BB8AB71E91}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenModule.ApiService", "src\Modules\Green\GreenModule.ApiService\GreenModule.ApiService.csproj", "{E8137BE9-2683-4B8F-A46B-49B31F2F573A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedModule.ApiClient", "Modules\Red\RedModule.ApiClient\RedModule.ApiClient.csproj", "{69BC4013-F32D-4FE7-A986-1CC0DF07A1D5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GreenModule.ApiClient", "src\Modules\Green\GreenModule.ApiClient\GreenModule.ApiClient.csproj", "{7C2C2FAD-DF82-47C6-A5E1-6D4188B2C104}"
 EndProject
 
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowModule.Web", "Modules\Yellow\YellowModule.Web\YellowModule.Web.csproj", "{571AB77B-9A13-4315-9353-41F44F0892E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedModule.Web", "src\Modules\Red\RedModule.Web\RedModule.Web.csproj", "{4548CB12-7A1B-4C3A-B2AC-7F09F5C2588D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowModule.Domain", "Modules\Yellow\YellowModule.Domain\YellowModule.Domain.csproj", "{6BE617A5-E523-4CCB-85E5-3B118AC23368}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedModule.Domain", "src\Modules\Red\RedModule.Domain\RedModule.Domain.csproj", "{0B499C64-8994-4610-BF82-363E71237898}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowModule.ApiService", "Modules\Yellow\YellowModule.ApiService\YellowModule.ApiService.csproj", "{999D7990-5BC8-43DA-AEB3-72A8AF37492F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedModule.ApiService", "src\Modules\Red\RedModule.ApiService\RedModule.ApiService.csproj", "{ACE5D7AE-677D-495C-9D4D-36BB8AB71E91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowModule.ApiClient", "Modules\Yellow\YellowModule.ApiClient\YellowModule.ApiClient.csproj", "{F8030503-5D93-4ED3-9865-2D03D085CFAE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RedModule.ApiClient", "src\Modules\Red\RedModule.ApiClient\RedModule.ApiClient.csproj", "{69BC4013-F32D-4FE7-A986-1CC0DF07A1D5}"
+EndProject
+
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowModule.Web", "src\Modules\Yellow\YellowModule.Web\YellowModule.Web.csproj", "{571AB77B-9A13-4315-9353-41F44F0892E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowModule.Domain", "src\Modules\Yellow\YellowModule.Domain\YellowModule.Domain.csproj", "{6BE617A5-E523-4CCB-85E5-3B118AC23368}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowModule.ApiService", "src\Modules\Yellow\YellowModule.ApiService\YellowModule.ApiService.csproj", "{999D7990-5BC8-43DA-AEB3-72A8AF37492F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YellowModule.ApiClient", "src\Modules\Yellow\YellowModule.ApiClient\YellowModule.ApiClient.csproj", "{F8030503-5D93-4ED3-9865-2D03D085CFAE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shell", "Shell", "{0EB80ED5-E157-45F8-96F2-986325273C85}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BFF", "BFF", "{894131C3-7845-4505-ACD7-04D9548F47AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Bff.Gateway", "Web.Bff.Gateway\Web.Bff.Gateway.csproj", "{398206A7-E681-4641-813B-78BDACEA9FF9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web.Bff.Gateway", "src\Web.Bff.Gateway\Web.Bff.Gateway.csproj", "{398206A7-E681-4641-813B-78BDACEA9FF9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFilters", "SolutionFilters", "{CA530C8D-75CE-4732-A576-D6AA81A27D5D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionFilters", "filters", "{CA530C8D-75CE-4732-A576-D6AA81A27D5D}"
+	ProjectSection(SolutionItems) = preProject
+		filters\Yellow.slnf = filters\Yellow.slnf
+		filters\Red.slnf = filters\Red.slnf
+		filters\Green.slnf = filters\Green.slnf
+		filters\Blue.slnf = filters\Blue.slnf
+		filters\Black.slnf = filters\Black.slnf
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WasmShell", "WasmShell\WasmShell\WasmShell.csproj", "{1F9A2C27-D4B1-4FCE-9250-6A233513C32C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WasmShell", "src\WasmShell\WasmShell\WasmShell.csproj", "{1F9A2C27-D4B1-4FCE-9250-6A233513C32C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WasmShell.Client", "WasmShell\WasmShell.Client\WasmShell.Client.csproj", "{3993779D-5D04-4CB8-8847-0566161196E1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WasmShell.Client", "src\WasmShell\WasmShell.Client\WasmShell.Client.csproj", "{3993779D-5D04-4CB8-8847-0566161196E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmxAppServer", "HtmxAppServer\HtmxAppServer.csproj", "{77C77C53-5EA7-4EAE-A1AD-033951C058CD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HtmxAppServer", "src\HtmxAppServer\HtmxAppServer.csproj", "{77C77C53-5EA7-4EAE-A1AD-033951C058CD}"
 EndProject
 
 Global
