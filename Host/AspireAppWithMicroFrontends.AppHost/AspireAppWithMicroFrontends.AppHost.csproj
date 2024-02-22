@@ -9,6 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\HtmxAppServer\HtmxAppServer.csproj" />
       <ProjectReference Include="..\..\Modules\Blue\BlueModule.ApiService\BlueModule.ApiService.csproj" />
       <ProjectReference Include="..\..\Modules\Green\GreenModule.ApiService\GreenModule.ApiService.csproj" />
       <ProjectReference Include="..\..\Modules\Red\RedModule.ApiService\RedModule.ApiService.csproj" />

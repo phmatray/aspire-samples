@@ -63,4 +63,11 @@ builder.AddProject<Projects.WasmShell>("wasmshell")
     .WithReference(redApi)
     .WithReference(yellowApi);
 
+// HTMX App Server
+builder.AddProject<Projects.HtmxAppServer>("htmxappserver")
+    .WithReference(blueApi)
+    .WithReference(greenApi)
+    .WithReference(redApi)
+    .WithReference(yellowApi);
+
 builder.Build().Run();
