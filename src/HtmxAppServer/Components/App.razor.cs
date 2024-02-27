@@ -18,7 +18,7 @@ public class AppEndpoint
     {
         // define the parameters that we want to pass to the component
         // and their default values
-        public string Theme { get; init; } = "dark";
+        public string Theme { get; init; } = "rsvzlight";
         public string Language { get; init; } = "en";
     
         public string SetTheme(string theme)
