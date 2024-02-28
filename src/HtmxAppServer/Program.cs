@@ -1,5 +1,5 @@
 global using FastComponents;
-global using static HtmxAppServer.Components.HtmxRoutes;
+global using static HtmxAppServer.Routes.HtmxRoutes;
 
 using HtmxAppServer.Services;
 

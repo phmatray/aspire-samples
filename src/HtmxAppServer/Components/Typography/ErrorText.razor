@@ -1,0 +1,16 @@
+<div class="@ClassName">
+  @ChildContent
+</div>
+
+@code {
+  
+  [Parameter]
+  public string CssClass { get; set; } = "";
+  
+  [Parameter]
+  public RenderFragment ChildContent { get; set; } = default!;
+  
+  private string ClassName
+    => $"text-center text-error {CssClass}";
+  
+}

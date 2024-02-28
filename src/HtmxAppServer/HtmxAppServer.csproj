@@ -18,6 +18,13 @@
     <PackageReference Include="FastComponents" Version="0.0.0-alpha.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="App\" />
+    <Folder Include="Components\Input\" />
+    <Folder Include="Features\" />
+    <Folder Include="Utils\" />
+  </ItemGroup>
+
   <!--  TODO: Add HtmxRenderer.Generator as a ProjectReference-->
   <!--  <ItemGroup>-->
   <!--    <ProjectReference Include="..\HtmxRenderer.Generator\HtmxRenderer.Generator\HtmxRenderer.Generator.csproj"-->

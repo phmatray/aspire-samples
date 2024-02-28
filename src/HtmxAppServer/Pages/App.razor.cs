@@ -1,4 +1,4 @@
-namespace HtmxAppServer.Components;
+namespace HtmxAppServer.Pages;
 
 public class AppEndpoint
     : HtmxComponentEndpoint<App, AppEndpoint.AppParameters>
