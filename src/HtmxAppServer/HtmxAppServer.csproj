@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="App\" />
-    <Folder Include="Components\Input\" />
     <Folder Include="Features\" />
     <Folder Include="Utils\" />
   </ItemGroup>

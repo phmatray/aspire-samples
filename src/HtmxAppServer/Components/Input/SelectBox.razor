@@ -1,0 +1,70 @@
+<div class="@($"inline-block {ContainerStyle}")">
+    <label class="@($"label {LabelStyle}")">
+        <div class="label-text">
+            @LabelTitle
+            @if (!string.IsNullOrWhiteSpace(LabelDescription))
+            {
+                <div class="tooltip tooltip-right" data-tip="@LabelDescription">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+            }
+        </div>
+    </label>
+    <select class="select select-bordered w-full" value="@Value" @onchange="UpdateValue">
+        <option disabled value="PLACEHOLDER">@Placeholder</option>
+        @foreach (var option in Options)
+        {
+            <option value="@option.Value">@option.Name</option>
+        }
+    </select>
+</div>
+
+@code {
+    [Parameter]
+    public string LabelTitle { get; set; }
+
+    [Parameter]
+    public string LabelDescription { get; set; }
+
+    [Parameter]
+    public string DefaultValue { get; set; }
+
+    [Parameter]
+    public string ContainerStyle { get; set; }
+
+    [Parameter]
+    public string Placeholder { get; set; }
+
+    [Parameter]
+    public string LabelStyle { get; set; }
+
+    [Parameter]
+    public List<OptionItem> Options { get; set; }
+
+    [Parameter]
+    public string UpdateType { get; set; }
+
+    [Parameter]
+    public EventCallback<(string updateType, string value)> UpdateFormValue { get; set; }
+
+    private string Value { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Value = DefaultValue ?? "";
+    }
+
+    private async Task UpdateValue(ChangeEventArgs e)
+    {
+        Value = e.Value.ToString();
+        await UpdateFormValue.InvokeAsync((UpdateType, Value));
+    }
+
+    public class OptionItem
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
+    }
+}
