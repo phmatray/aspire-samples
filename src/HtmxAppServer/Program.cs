@@ -2,6 +2,9 @@ global using FastComponents;
 global using static HtmxAppServer.Routes.HtmxRoutes;
 
 using HtmxAppServer.Services;
+using HtmxAppServer.Utils;
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.JSInterop;
 
 // TODO: enable AOT compilation
 // TODO: create a Template from this project
@@ -10,8 +13,9 @@ using HtmxAppServer.Services;
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
-// Add FastComponents services
 services.AddFastComponents();
+
+services.AddSingleton<IErrorBoundaryLogger, CustomErrorBoundaryLogger>();
 
 // Add business services
 services.AddSingleton<MovieService>();

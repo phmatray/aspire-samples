@@ -1,3 +1,5 @@
+@using Microsoft.AspNetCore.Components.Web
+@using HtmxAppServer.Features.Dashboard.Components
 @inherits HtmxComponentBase<AppEndpoint.AppParameters>
 
 <!DOCTYPE html>
@@ -17,6 +19,10 @@
       <h1 class="text-5xl font-bold">HTMX App Server</h1>
       <p class="py-6">This is a demo of HTMX with ASP.NET Core and Blazor</p>
       <button class="btn btn-primary">Get Started</button>
+      <ErrorBoundary>
+        <AmountStats/>
+        <DashboardStats/>
+      </ErrorBoundary>
     </div>
   </div>
 </div>

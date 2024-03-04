@@ -1,0 +1,42 @@
+<div class="stats shadow">
+  <div class="stat">
+    <div class="@GetIconStyle(ColorIndex)">@Icon</div>
+    <div class="stat-title dark:text-slate-300">@Title</div>
+    <div class="@GetValueStyle(ColorIndex)">@Value</div>
+    <div class="@GetDescStyle()">@Description</div>
+  </div>
+</div>
+
+@code {
+  [Parameter]
+  public string Title { get; set; }
+
+  [Parameter]
+  public MarkupString Icon { get; set; } // Assuming the icon is SVG or similar that can be rendered as markup
+
+  [Parameter]
+  public string Value { get; set; }
+
+  [Parameter]
+  public string Description { get; set; }
+
+  [Parameter]
+  public int ColorIndex { get; set; }
+
+  private readonly string[] COLORS = { "primary", "primary" };
+
+  private string GetIconStyle(int colorIndex)
+    => $"stat-figure dark:text-slate-300 text-{COLORS[colorIndex % 2]}";
+
+  private string GetValueStyle(int colorIndex)
+    => $"stat-value dark:text-slate-300 text-{COLORS[colorIndex % 2]}";
+
+  private string GetDescStyle()
+  {
+    return Description.Contains("↗︎")
+      ? "stat-desc font-bold text-green-700 dark:text-green-300"
+      : Description.Contains("↙")
+        ? "stat-desc font-bold text-rose-500 dark:text-red-400"
+        : "stat-desc";
+  }
+}

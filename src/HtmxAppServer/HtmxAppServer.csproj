@@ -20,8 +20,17 @@
 
   <ItemGroup>
     <Folder Include="App\" />
-    <Folder Include="Features\" />
-    <Folder Include="Utils\" />
+    <Folder Include="Features\Calendar\" />
+    <Folder Include="Features\Charts\Components\" />
+    <Folder Include="Features\Common\Components\" />
+    <Folder Include="Features\Documentation\Components\" />
+    <Folder Include="Features\Integration\" />
+    <Folder Include="Features\Leads\Components\" />
+    <Folder Include="Features\Settings\Billing\" />
+    <Folder Include="Features\Settings\ProfileSettings\" />
+    <Folder Include="Features\Settings\Team\" />
+    <Folder Include="Features\Transactions\" />
+    <Folder Include="Features\User\Components\" />
   </ItemGroup>
 
   <!--  TODO: Add HtmxRenderer.Generator as a ProjectReference-->
