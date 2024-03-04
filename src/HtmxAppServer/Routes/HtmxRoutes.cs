@@ -14,6 +14,14 @@ public static class HtmxRoutes
     public const string RouteTeam = "/ui/pages/team";
     public const string RouteTransactions = "/ui/pages/transactions";
     public const string RouteWelcome = "/ui/pages/welcome";
+    
+    public const string RouteDocComponents = "/ui/pages/doc-components";
+    public const string RouteDocFeatures = "/ui/pages/doc-features";
+    public const string RouteDocumentation = "/ui/pages/documentation";
+    public const string RouteForgotPassword = "/ui/pages/forgot-password";
+    public const string RouteGettingStarted = "/ui/pages/getting-started";
+    public const string RouteLogin = "/ui/pages/login";
+    public const string RouteRegister = "/ui/pages/register";
 
     public const string RouteCode404 = "/ui/pages/not-found";
     
