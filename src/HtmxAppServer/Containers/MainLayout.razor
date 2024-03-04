@@ -4,24 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Demo HTMX Blazor</title>
-  <script src="/lib/htmx.min.js"></script>
-  <link href="/css/tailwind.css" rel="stylesheet">
+  <script src="lib/htmx.min.js"></script>
+  <link href="css/tailwind.css" rel="stylesheet">
 </head>
 <body>
-  <div class="drawer lg:drawer-open">
-    <input id="left-sidebar-drawer" type="checkbox" class="drawer-toggle" />
-    
-    
-    <div class="drawer-content flex flex-col ">
-      <Header/>
-      <main class="flex-1 overflow-y-auto md:pt-4 pt-4 px-6  bg-base-200">
-        <div class="h-16">
-          @ChildContent
-        </div>
-      </main>
-    </div>
-    <LeftSidebar />
-  </div>
+<div class="drawer lg:drawer-open">
+  <input id="left-sidebar-drawer" type="checkbox" class="drawer-toggle" />
+  <PageContent>
+    @ChildContent
+  </PageContent>
+  <LeftSidebar />
+</div>
 </body>
 </html>
 
