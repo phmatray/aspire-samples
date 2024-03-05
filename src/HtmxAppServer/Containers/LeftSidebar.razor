@@ -1,32 +1,30 @@
 <div class="drawer-side z-30">
-    <label htmlFor="left-sidebar-drawer" class="drawer-overlay"></label> 
-    <ul class="menu  pt-2 w-80 bg-base-100 min-h-full text-base-content">
-      <button class="btn btn-ghost bg-base-300  btn-circle z-50 top-0 right-0 mt-4 mr-2 absolute lg:hidden" @onClick="@Close">
-        @* <XMarkIcon class="h-5 inline-block w-5"/> *@
-        Close
-      </button>
+  <label htmlFor="left-sidebar-drawer" class="drawer-overlay"></label> 
+  <ul class="menu  pt-2 w-80 bg-base-100 min-h-full text-base-content">
+    <button class="btn btn-ghost bg-base-300 btn-circle z-50 top-0 right-0 mt-4 mr-2 absolute lg:hidden" @onClick="@Close">
+      <XMarkIcon class="inline-block w-5 h-5"/>
+      Close
+    </button>
       
-      <li class="mb-2 font-semibold text-xl">
-        <a href="@RouteWelcome">
-          <img class="mask mask-squircle w-10" src="/logo192.png" alt="DashWind Logo"/>DashWind
+    <li class="mb-2 font-semibold text-xl">
+      <a href="@RouteWelcome">
+        <img class="mask mask-squircle w-10" src="/logo192.png" alt="DashWind Logo"/>DashWind
+      </a>
+    </li>
+      
+    @foreach (RouteInfo route in _routes)
+    {
+      <li @key="route.Name">
+        <a href=@route.Path class="font-normal">
+          @route.Icon @route.Name
+          @* @if (route.Path == location.pathname) *@
+          @* { *@
+          @*   <span class="absolute inset-y-0 left-0 w-1 rounded-tr-md rounded-br-md bg-primary " aria-hidden="true"></span> *@
+          @* } *@
         </a>
       </li>
-      
-      @foreach (RouteInfo route in _routes)
-      {
-        <li @key="route.Name">
-          <a
-            href=@route.Path
-            class="font-normal">
-            @route.Icon @route.Name
-            @* @if (route.Path == location.pathname) *@
-            @* { *@
-            @*   <span class="absolute inset-y-0 left-0 w-1 rounded-tr-md rounded-br-md bg-primary " aria-hidden="true"></span> *@
-            @* } *@
-          </a>
-        </li>
-      }
-    </ul>
+    }
+  </ul>
 </div>
 
 @code {
