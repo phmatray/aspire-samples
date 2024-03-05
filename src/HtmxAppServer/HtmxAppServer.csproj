@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="App\" />
     <Folder Include="Features\Calendar\" />
     <Folder Include="Features\Charts\Components\" />
     <Folder Include="Features\Common\Components\" />

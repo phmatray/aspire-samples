@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npm-run-all --parallel watch:*",
     "watch:tailwind": "npx tailwindcss -i ./Styles/tailwind.css -o ./wwwroot/css/tailwind.css --watch",
-    "watch:dotnet": "dotnet watch run",
+    "watch:dotnet": "dotnet watch run --non-interactive",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

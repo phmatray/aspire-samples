@@ -40,3 +40,9 @@
         transform: rotate(360deg);
     }
 }
+
+.nav-item a.active::after
+{
+    @apply font-semibold;
+    @apply bg-base-200;
+}
