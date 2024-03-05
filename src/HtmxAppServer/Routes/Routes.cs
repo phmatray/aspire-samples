@@ -67,5 +67,3 @@ public static class Routes
         new RouteInfo(RouteMovieCharactersRows, "Movie Characters Rows")
     ];
 }
-
-public record RouteInfo(string Path, string Name, string? Icon = null);
