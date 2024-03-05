@@ -21,9 +21,9 @@
   public string Description { get; set; }
 
   [Parameter]
-  public int ColorIndex { get; set; }
+  public int ColorIndex { get; set; } = 0;
 
-  private readonly string[] COLORS = { "primary", "primary" };
+  private readonly string[] COLORS = ["primary", "primary"];
 
   private string GetIconStyle(int colorIndex)
     => $"stat-figure dark:text-slate-300 text-{COLORS[colorIndex % 2]}";

@@ -3,6 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta
+    name="description"
+    content="A free admin dashboard template using Daisy UI and Custom Blazor SSR."
+  />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="manifest" href="/manifest.json" />
   <title>Demo HTMX Blazor</title>
   <script src="/lib/htmx.min.js"></script>
   <script src="/lib/chart.min.js"></script>
@@ -10,11 +17,13 @@
 </head>
 <body>
 <div class="drawer lg:drawer-open">
-  <input id="left-sidebar-drawer" type="checkbox" class="drawer-toggle" />
-  <PageContent>
-    @ChildContent
-  </PageContent>
-  <LeftSidebar />
+  <input id="left-sidebar-drawer" type="checkbox" class="drawer-toggle"/>
+  <CascadingValue Name="Title" Value="@Title">
+    <PageContent>
+      @ChildContent
+    </PageContent>
+  </CascadingValue>
+  <LeftSidebar/>
 </div>
 </body>
 </html>
@@ -26,6 +35,9 @@
   
   [Parameter]
   public string Theme { get; set; } = "light";
+  
+  [Parameter]
+  public string? Title { get; set; } = "Demo HTMX Blazor";
 
   [Parameter]
   public RenderFragment ChildContent { get; set; } = null!;
