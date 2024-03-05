@@ -62,8 +62,5 @@ public static class Routes
         new RouteInfo(RouteLogin, "Login"),
         new RouteInfo(RouteRegister, "Register"),
         new RouteInfo(RouteCode404, "Not Found"),
-        new RouteInfo(RouteCounter, "Counter"),
-        new RouteInfo(RouteMovieCharacters, "Movie Characters"),
-        new RouteInfo(RouteMovieCharactersRows, "Movie Characters Rows")
     ];
 }
