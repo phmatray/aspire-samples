@@ -1,7 +1,7 @@
-namespace HtmxAppServer.Pages;
+namespace HtmxAppServer.Features.Documentation.Pages;
 
 public class GettingStartedEndpoint
-    : HtmxComponentEndpoint<GettingStarted, GettingStartedEndpoint.GettingStartedParameters>
+    : HtmxComponentEndpoint<DocGettingStarted, GettingStartedEndpoint.GettingStartedParameters>
 {
     public override void Configure()
     {

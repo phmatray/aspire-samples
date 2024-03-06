@@ -29,7 +29,7 @@
 </div>
 
 @* Right drawer - containing secondary content like notifications list etc.. *@
-<RightSidebar/>
+<RightSidebar IsOpen="@RightSidebarOpen"/>
 </body>
 </html>
 
@@ -43,6 +43,9 @@
   
   [Parameter]
   public string? Title { get; set; } = "Demo HTMX Blazor";
+  
+  [Parameter]
+  public bool RightSidebarOpen { get; set; }
 
   [Parameter]
   public RenderFragment ChildContent { get; set; } = null!;

@@ -28,7 +28,9 @@
 
 @code {
 
-  private bool IsOpen { get; set; } = true;
+  [Parameter]
+  public bool IsOpen { get; set; }
+  
   private string Header { get; set; }
   
   private void Close(){}
