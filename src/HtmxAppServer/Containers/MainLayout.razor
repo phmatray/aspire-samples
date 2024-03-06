@@ -16,6 +16,8 @@
   <link href="/css/tailwind.css" rel="stylesheet">
 </head>
 <body>
+
+@* Left drawer - containing page content and side bar (always open) *@
 <div class="drawer lg:drawer-open">
   <input id="left-sidebar-drawer" type="checkbox" class="drawer-toggle"/>
   <CascadingValue Name="Title" Value="@Title">
@@ -25,6 +27,9 @@
   </CascadingValue>
   <LeftSidebar/>
 </div>
+
+@* Right drawer - containing secondary content like notifications list etc.. *@
+<RightSidebar/>
 </body>
 </html>
 
