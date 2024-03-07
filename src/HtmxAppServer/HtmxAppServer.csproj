@@ -15,11 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Blazor.Heroicons" Version="2.1.2" />
     <PackageReference Include="FastComponents" Version="0.0.0-alpha.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Components\Icons\" />
     <Folder Include="Features\Calendar\" />
     <Folder Include="Features\Common\Components\" />
     <Folder Include="Features\Integration\" />

@@ -1,3 +1,5 @@
+@inject IHttpContextAccessor HttpContextAccessor
+
 <div class="drawer-side z-30">
   <label htmlFor="left-sidebar-drawer" class="drawer-overlay"></label> 
   <ul class="menu  pt-2 w-80 bg-base-100 min-h-full text-base-content">
@@ -10,17 +12,28 @@
         <img class="mask mask-squircle w-10" src="/logo192.png" alt="SEQUOIA Logo"/>SEQUOIA Web
       </a>
     </li>
-      
-    @foreach (RouteInfo route in _routes)
+    
+    @foreach (var item in _sidebarItems)
     {
-      <li @key="route.Name">
-        <a href=@route.Path class="font-normal">
-          @route.Icon @route.Name
-          @* @if (route.Path == location.pathname) *@
-          @* { *@
-          @*   <span class="absolute inset-y-0 left-0 w-1 rounded-tr-md rounded-br-md bg-primary " aria-hidden="true"></span> *@
-          @* } *@
-        </a>
+      <li @key="item.Key">
+        @switch (item)
+        {
+          case SidebarDropdown collection:
+            <SidebarSubmenu
+              Submenu="@collection.Links"
+              Title="@collection.Title"
+              Icon="@collection.Icon"/>
+            break;
+          case SidebarLink route:
+            <a href=@route.Path class=@(IsCurrentRoute(route.Path) ? "font-semibold  bg-base-200" : "font-normal")>
+              <Heroicon Name="@item.Icon" Type="HeroiconType.Outline" class="h-6 w-6"/> @item.Title
+              @if (IsCurrentRoute(route.Path))
+              {
+                <span class="absolute inset-y-0 left-0 w-1 rounded-tr-md rounded-br-md bg-primary" aria-hidden="true"></span>
+              }
+            </a>
+            break;
+        }
       </li>
     }
   </ul>
@@ -28,10 +41,20 @@
 
 @code {
 
-  private ImmutableArray<RouteInfo> _routes = GetAllRoutes();
+  private SidebarItemCollection _sidebarItems = [];
 
   private void Close()
   {
   }
   
+  private string GetCurrentRoute()
+  {
+    return HttpContextAccessor.HttpContext?.Request.Path ?? "/";
+  }
+  
+  private bool IsCurrentRoute(string route)
+  {
+    return GetCurrentRoute() == route;
+  }
+
 }

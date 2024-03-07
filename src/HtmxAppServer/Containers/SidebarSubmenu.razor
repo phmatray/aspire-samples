@@ -1,0 +1,40 @@
+<div class="flex flex-col">
+  @* Route header *@
+  <div class="w-full block" @onClick="() => isExpanded = !isExpanded">
+    <Heroicon Name="@Icon" Type="HeroiconType.Outline" class="h-6 w-6 inline"/> @Title
+    <ChevronDownIcon class=@("w-5 h-5 mt-1 float-right delay-400 duration-500 transition-all  " + (isExpanded ? "rotate-180" : ""))/>
+  </div>
+
+  @* Submenu list *@
+  <div class=@("w-full " + (isExpanded ? "" : "hidden"))>
+    <ul class="menu menu-compact">
+      @foreach (var item in Submenu)
+      {
+        <li @key=@item.Key>
+          <a href=@item.Path>
+            <Heroicon Name="@item.Icon" Type="HeroiconType.Outline" class="h-5 w-5"/> @item.Title
+            @* TODO: find an alternative to the location.pathname *@
+            @* @if (location.pathname == item.Path) *@
+            @* { *@
+            @*   <span class="absolute mt-1 mb-1 inset-y-0 left-0 w-1 rounded-tr-md rounded-br-md bg-primary " aria-hidden="true"></span> *@
+            @* } *@
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</div>
+
+@code {
+  
+  private bool isExpanded = false;
+  
+  [Parameter, EditorRequired]
+  public required List<SidebarLink> Submenu { get; set; }
+  
+  [Parameter, EditorRequired]
+  public required string Title { get; set; }
+  
+  [Parameter, EditorRequired]
+  public required string Icon { get; set; }
+}

@@ -1,5 +1,3 @@
-using System.Collections.Immutable;
-
 namespace HtmxAppServer.Routes;
 
 public static class Routes
@@ -38,29 +36,4 @@ public static class Routes
     public const string RouteCounter = $"{BlocksPath}/counter";
     public const string RouteMovieCharacters = $"{BlocksPath}/movie-characters";
     public const string RouteMovieCharactersRows = $"{BlocksPath}/movie-characters-rows";
-    
-    // DO NOT FORGET TO ADD NEW ROUTES TO RouteData.AllRoutes
-    public static ImmutableArray<RouteInfo> GetAllRoutes() =>
-    [
-        new RouteInfo(RouteApp, "App"),
-        new RouteInfo(RouteDashboard, "Dashboard"),
-        new RouteInfo(RouteWelcome, "Welcome"),
-        new RouteInfo(RouteBills, "Bills"),
-        new RouteInfo(RouteBlank, "Blank"),
-        new RouteInfo(RouteCalendar, "Calendar"),
-        new RouteInfo(RouteCharts, "Charts"),
-        new RouteInfo(RouteIntegration, "Integration"),
-        new RouteInfo(RouteLeads, "Leads"),
-        new RouteInfo(RouteProfileSettings, "Profile Settings"),
-        new RouteInfo(RouteTeam, "Team"),
-        new RouteInfo(RouteTransactions, "Transactions"),
-        new RouteInfo(RouteDocComponents, "Doc Components"),
-        new RouteInfo(RouteDocFeatures, "Doc Features"),
-        new RouteInfo(RouteDocumentation, "Documentation"),
-        new RouteInfo(RouteForgotPassword, "Forgot Password"),
-        new RouteInfo(RouteGettingStarted, "Getting Started"),
-        new RouteInfo(RouteLogin, "Login"),
-        new RouteInfo(RouteRegister, "Register"),
-        new RouteInfo(RouteCode404, "Not Found"),
-    ];
 }

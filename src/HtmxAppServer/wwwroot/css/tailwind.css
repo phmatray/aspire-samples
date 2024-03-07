@@ -3673,6 +3673,12 @@ html {
   color: var(--fallback-s,oklch(var(--s)/var(--tw-text-opacity)));
 }
 
+.btm-nav > *:where(.active) {
+  border-top-width: 2px;
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
+}
+
 .btm-nav > *.disabled,
     .btm-nav > *[disabled] {
   pointer-events: none;
@@ -4657,6 +4663,13 @@ html {
   background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
 }
 
+.table-zebra tr.active,
+    .table-zebra tr.active:nth-child(even),
+    .table-zebra-zebra tbody tr:nth-child(even) {
+  --tw-bg-opacity: 1;
+  background-color: var(--fallback-b3,oklch(var(--b3)/var(--tw-bg-opacity)));
+}
+
 .table :where(thead, tbody) :where(tr:not(:last-child)),
     .table :where(thead, tbody) :where(tr:first-child:last-child) {
   border-bottom-width: 1px;
@@ -4817,6 +4830,22 @@ html {
   line-height: 1rem;
   padding-left: 0.438rem;
   padding-right: 0.438rem;
+}
+
+.btm-nav-xs > *:where(.active) {
+  border-top-width: 1px;
+}
+
+.btm-nav-sm > *:where(.active) {
+  border-top-width: 2px;
+}
+
+.btm-nav-md > *:where(.active) {
+  border-top-width: 2px;
+}
+
+.btm-nav-lg > *:where(.active) {
+  border-top-width: 4px;
 }
 
 .btn-xs {
@@ -5349,6 +5378,10 @@ html:has(.drawer-toggle:checked) {
   margin-bottom: 0.125rem;
 }
 
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -5413,6 +5446,10 @@ html:has(.drawer-toggle:checked) {
   display: inline-block;
 }
 
+.inline {
+  display: inline;
+}
+
 .flex {
   display: flex;
 }
@@ -5427,6 +5464,10 @@ html:has(.drawer-toggle:checked) {
 
 .contents {
   display: contents;
+}
+
+.hidden {
+  display: none;
 }
 
 .h-16 {
@@ -5560,6 +5601,11 @@ html:has(.drawer-toggle:checked) {
 
 .translate-x-full {
   --tw-translate-x: 100%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.rotate-180 {
+  --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
