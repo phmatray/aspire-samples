@@ -1,4 +1,4 @@
-namespace HtmxAppServer.Routes;
+namespace HtmxAppServer.Routing;
 
 public static class Routes
 {

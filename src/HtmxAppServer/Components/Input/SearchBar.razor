@@ -22,7 +22,7 @@
   // special when SearchText changes.
   private async Task OnSearchTextChanged(ChangeEventArgs e)
   {
-    SearchText = e.Value.ToString();
+    SearchText = e.Value?.ToString() ?? string.Empty;
     await SearchTextChanged.InvokeAsync(SearchText);
   }
 }
