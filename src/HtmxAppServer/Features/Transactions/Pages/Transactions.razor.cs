@@ -1,4 +1,4 @@
-namespace HtmxAppServer.Pages.Authenticated;
+namespace HtmxAppServer.Features.Transactions.Pages;
 
 public class TransactionsEndpoint
     : HtmxComponentEndpoint<Transactions, TransactionsEndpoint.TransactionsParameters>

@@ -1,4 +1,4 @@
-@inject IHttpContextAccessor HttpContextAccessor
+@inject IRoutingService Routing
 
 <div class="drawer-side z-30">
   <label htmlFor="left-sidebar-drawer" class="drawer-overlay"></label> 
@@ -25,9 +25,9 @@
               Icon="@collection.Icon"/>
             break;
           case SidebarLink route:
-            <a href=@route.Path class=@(IsCurrentRoute(route.Path) ? "font-semibold  bg-base-200" : "font-normal")>
+            <a href=@route.Path class=@(Routing.IsCurrentRoute(route.Path) ? "font-semibold  bg-base-200" : "font-normal")>
               <Heroicon Name="@item.Icon" Type="HeroiconType.Outline" class="h-6 w-6"/> @item.Title
-              @if (IsCurrentRoute(route.Path))
+              @if (Routing.IsCurrentRoute(route.Path))
               {
                 <span class="absolute inset-y-0 left-0 w-1 rounded-tr-md rounded-br-md bg-primary" aria-hidden="true"></span>
               }
@@ -45,16 +45,6 @@
 
   private void Close()
   {
-  }
-  
-  private string GetCurrentRoute()
-  {
-    return HttpContextAccessor.HttpContext?.Request.Path ?? "/";
-  }
-  
-  private bool IsCurrentRoute(string route)
-  {
-    return GetCurrentRoute() == route;
   }
 
 }

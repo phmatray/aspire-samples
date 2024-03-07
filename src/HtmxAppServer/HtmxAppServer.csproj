@@ -27,8 +27,31 @@
     <Folder Include="Features\Settings\Billing\" />
     <Folder Include="Features\Settings\ProfileSettings\" />
     <Folder Include="Features\Settings\Team\" />
-    <Folder Include="Features\Transactions\" />
     <Folder Include="Features\User\Components\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Features\Documentation\Localization\Documentation.nl-be.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Documentation.nl-be.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Features\Documentation\Localization\Documentation.fr-be.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Documentation.fr-be.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Features\Documentation\Localization\Documentation.nl-be.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Documentation.nl-be.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Features\Documentation\Localization\Documentation.fr-be.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Documentation.fr-be.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <!--  TODO: Add HtmxRenderer.Generator as a ProjectReference-->

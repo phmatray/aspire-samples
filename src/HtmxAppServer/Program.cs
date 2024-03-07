@@ -16,6 +16,8 @@ var services = builder.Services;
 services.AddFastComponents();
 
 services.AddHttpContextAccessor();
+services.AddTransient<IRoutingService, RoutingService>();
+
 services.AddSingleton<IErrorBoundaryLogger, CustomErrorBoundaryLogger>();
 
 // Add business services

@@ -1,3 +1,5 @@
+@inject IRoutingService Routing
+
 <div class="flex flex-col">
   @* Route header *@
   <div class="w-full block" @onClick="() => isExpanded = !isExpanded">
@@ -8,16 +10,15 @@
   @* Submenu list *@
   <div class=@("w-full " + (isExpanded ? "" : "hidden"))>
     <ul class="menu menu-compact">
-      @foreach (var item in Submenu)
+      @foreach (var route in Submenu)
       {
-        <li @key=@item.Key>
-          <a href=@item.Path>
-            <Heroicon Name="@item.Icon" Type="HeroiconType.Outline" class="h-5 w-5"/> @item.Title
-            @* TODO: find an alternative to the location.pathname *@
-            @* @if (location.pathname == item.Path) *@
-            @* { *@
-            @*   <span class="absolute mt-1 mb-1 inset-y-0 left-0 w-1 rounded-tr-md rounded-br-md bg-primary " aria-hidden="true"></span> *@
-            @* } *@
+        <li @key=@route.Key>
+          <a href=@route.Path class=@(Routing.IsCurrentRoute(route.Path) ? "font-semibold  bg-base-200" : "font-normal")>
+            <Heroicon Name="@route.Icon" Type="HeroiconType.Outline" class="h-5 w-5"/> @route.Title
+            @if (Routing.IsCurrentRoute(route.Path))
+            {
+              <span class="absolute mt-1 mb-1 inset-y-0 left-0 w-1 rounded-tr-md rounded-br-md bg-primary" aria-hidden="true"></span>
+            }
           </a>
         </li>
       }
@@ -27,7 +28,7 @@
 
 @code {
   
-  private bool isExpanded = false;
+  private bool isExpanded = true;
   
   [Parameter, EditorRequired]
   public required List<SidebarLink> Submenu { get; set; }
