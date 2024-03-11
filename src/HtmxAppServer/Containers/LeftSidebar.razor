@@ -45,6 +45,11 @@
 
   private SidebarItemCollection _sidebarItems = [];
 
+  protected override void OnInitialized()
+  {
+    _sidebarItems = Routing.GetSidebarItems();
+  }
+
   private void Close()
   {
   }

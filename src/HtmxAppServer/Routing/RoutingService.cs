@@ -1,17 +1,11 @@
 using HtmxAppServer.Routing.Models;
-using HtmxAppServer.Services;
+using Microsoft.Extensions.Localization;
 
 namespace HtmxAppServer.Routing;
 
-public interface IRoutingService
-{
-    string GetCurrentRoute();
-    bool IsCurrentRoute(string route);
-}
-
 public class RoutingService(
     IHttpContextAccessor httpContextAccessor,
-    ILocalizationService localizationService)
+    IStringLocalizer<RoutingService> localizer)
     : IRoutingService
 {
     public string GetCurrentRoute()
@@ -27,14 +21,14 @@ public class RoutingService(
     public SidebarItemCollection GetSidebarItems()
     {
         var sidebarItems = new SidebarItemCollection();
-            
+
         // sidebarItems.AddSidebarLink(RouteDashboard, "Dashboard", "Squares2X2");
         // sidebarItems.AddSidebarLink(RouteLeads, "Leads", "InboxArrowDown");
         // sidebarItems.AddSidebarLink(RouteTransactions, "Transactions", "CurrencyDollar");
         // sidebarItems.AddSidebarLink(RouteCharts, "Analytics", "ChartBar");
         // sidebarItems.AddSidebarLink(RouteIntegration, "Integration", "Bolt");
         // sidebarItems.AddSidebarLink(RouteCalendar, "Calendar", "CalendarDays");
-        
+
         // sidebarItems.AddSidebarSubmenu("Settings", "Cog6Tooth", [
         //     new SidebarLink(RouteProfileSettings, "Profile", "User"),
         //     new SidebarLink(RouteBills, "Billing", "Wallet"),
@@ -54,35 +48,98 @@ public class RoutingService(
         //     new SidebarLink(RouteDocFeatures, "Features", "TableCells"),
         //     new SidebarLink(RouteDocComponents, "Components", "CodeBracketSquare")
         // ]);
-        
-        sidebarItems.AddSidebarSubmenu(localizationService.GetLocalizedString("Hello"), "Eye", [
-            new SidebarLink(RouteGettingStarted, "Missions", "ClipboardDocumentCheck"),
-            new SidebarLink(RouteGettingStarted, "Documents", "DocumentText"),
-        ]);
-        
-        sidebarItems.AddSidebarSubmenu("Profil", "Person", [
-            new SidebarLink(RouteGettingStarted, "Adresses", "MapMarker"),
-            new SidebarLink(RouteGettingStarted, "Nationalité", "Flag"),
-            new SidebarLink(RouteGettingStarted, "Numéros d'identification", "Identification"),
-            new SidebarLink(RouteGettingStarted, "Relations légales", "UserGroup"),
-            new SidebarLink(RouteGettingStarted, "Famille et filiation", "Users"),
-            new SidebarLink(RouteGettingStarted, "Relations BCE", "BuildingOffice"),
-            new SidebarLink(RouteGettingStarted, "Logging Mutations", "ClipboardDocumentList"),
+
+        sidebarItems.AddSidebarSubmenu(
+            localizer.GetString("Overview"),
+            "Eye", [
+                new SidebarLink(
+                    RouteGettingStarted,
+                    localizer.GetString("Missions"),
+                    "ClipboardDocumentCheck"),
+                new SidebarLink(
+                    RouteGettingStarted,
+                    localizer.GetString("Documents"),
+                    "DocumentText"),
+            ]);
+
+        sidebarItems.AddSidebarSubmenu(
+            localizer.GetString("Profile"),
+            "Person", [
+                new SidebarLink(
+                    RouteGettingStarted,
+                    localizer.GetString("Addresses"),
+                    "MapMarker"),
+                new SidebarLink(
+                    RouteGettingStarted,
+                    localizer.GetString("Nationality"),
+                    "Flag"),
+                new SidebarLink(
+                    RouteGettingStarted,
+                    localizer.GetString("IdentificationNumbers"),
+                    "Identification"),
+                new SidebarLink(
+                    RouteGettingStarted,
+                    localizer.GetString("LegalRelations"),
+                    "UserGroup"),
+                new SidebarLink(
+                    RouteGettingStarted,
+                    localizer.GetString("FamilyAndLineage"),
+                    "Users"),
+                new SidebarLink(
+                    RouteGettingStarted, 
+                    localizer.GetString("BCERelations"), 
+                    "BuildingOffice"),
+                new SidebarLink(
+                    RouteGettingStarted,
+                    localizer.GetString("LoggingMutations"),
+                    "ClipboardDocumentList"),
+            ]);
+
+        sidebarItems.AddSidebarSubmenu(
+            localizer.GetString("Career"),
+            "Briefcase", [
+            new SidebarLink(
+                RouteGettingStarted,
+                localizer.GetString("AffiliationHistory"),
+                "History"),
+            new SidebarLink(
+                RouteGettingStarted,
+                localizer.GetString("AssistanceRequests"),
+                "Lifebuoy"),
+            new SidebarLink(
+                RouteGettingStarted,
+                localizer.GetString("CareerManagement"),
+                "Briefcase"),
+            new SidebarLink(
+                RouteGettingStarted,
+                localizer.GetString("HelpersAndSupported"),
+                "HandThumbUp"),
+            new SidebarLink(
+                RouteGettingStarted,
+                localizer.GetString("ContributionsOverview"),
+                "CurrencyEuro"),
+            new SidebarLink(
+                RouteGettingStarted,
+                localizer.GetString("EClipz"),
+                "Film"),
+            new SidebarLink(
+                RouteGettingStarted,
+                localizer.GetString("EUTransfer"),
+                "GlobeEuropeAfrica"),
+            new SidebarLink(
+                RouteGettingStarted,
+                localizer.GetString("Revenues"),
+                "CurrencyEuro"),
+            new SidebarLink(
+                RouteGettingStarted,
+                localizer.GetString("PensionEngineCareer"),
+                "Car"),
+            new SidebarLink(
+                RouteGettingStarted,
+                localizer.GetString("CareerCertificate"),
+                "DocumentCheck"),
         ]);
 
-        sidebarItems.AddSidebarSubmenu("Carrière", "Briefcase", [
-            new SidebarLink(RouteGettingStarted, "Historique des affiliations", "History"),
-            new SidebarLink(RouteGettingStarted, "Demandes d'aide", "Lifebuoy"),
-            new SidebarLink(RouteGettingStarted, "Carrière en gestion", "Briefcase"),
-            new SidebarLink(RouteGettingStarted, "Aidants et aidés", "HandThumbUp"),
-            new SidebarLink(RouteGettingStarted, "Aperçu de cotisations", "CurrencyEuro"),
-            new SidebarLink(RouteGettingStarted, "E-Clipz", "Film"),
-            new SidebarLink(RouteGettingStarted, "Transfert EU", "GlobeEuropeAfrica"),
-            new SidebarLink(RouteGettingStarted, "Revenus", "CurrencyEuro"),
-            new SidebarLink(RouteGettingStarted, "Carrière Moteur Pension", "Car"),
-            new SidebarLink(RouteGettingStarted, "Attestation de carrière", "DocumentCheck"),
-        ]);
-            
         return sidebarItems;
     }
 }
