@@ -23,4 +23,13 @@
       <PackageReference Include="MudBlazor" Version="6.17.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="wwwroot\assemblies\modules\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="wwwroot\assemblies\modules\RedModule.Web.1.0.0.nupkg" />
+      <Content Remove="wwwroot\assemblies\modules\GreenModule.Web.1.0.0.nupkg" />
+    </ItemGroup>
+
 </Project>

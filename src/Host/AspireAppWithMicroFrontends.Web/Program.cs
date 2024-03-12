@@ -4,6 +4,7 @@ using MudBlazor.Services;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 IServiceCollection services = builder.Services;
+IWebHostEnvironment environment = builder.Environment;
 
 // Add service defaults & Aspire components.
 builder.AddServiceDefaults();
@@ -39,6 +40,7 @@ app.MapRazorComponents<App>()
         typeof(GreenModule.Web.Components.HelloGreen).Assembly,
         typeof(RedModule.Web.Components.HelloRed).Assembly,
         typeof(YellowModule.Web.Components.HelloYellow).Assembly)
+    // .AddModulesFromAssemblies(environment)
     .AddInteractiveServerRenderMode();
 
 app.MapDefaultEndpoints();
