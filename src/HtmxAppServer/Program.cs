@@ -16,12 +16,10 @@ var services = builder.Services;
 services.AddFastComponents();
 
 services.AddHttpContextAccessor();
-services.AddTransient<IRoutingService, RoutingService>();
+services.AddScoped<IRoutingService, RoutingService>();
 
 // Configure localization
 Localization.AddLocalization(services);
-// services.AddSingleton<IStringLocalizer, StringLocalizer<LocalizationService>>();
-// services.AddTransient<ILocalizationService, LocalizationService>();
 
 services.AddSingleton<IErrorBoundaryLogger, CustomErrorBoundaryLogger>();
 
@@ -34,7 +32,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 // Localization
-app.UseRequestLocalization();
+Localization.UseLocalization(app);
 
 // Map endpoints to components
 app.UseFastComponents();

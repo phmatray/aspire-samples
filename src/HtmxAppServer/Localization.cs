@@ -7,6 +7,7 @@ namespace HtmxAppServer;
 public static class Localization
 {
     private const string DefaultCulture = "nl-BE";
+    private const string ResourcesPath = "Resources";
 
     public static readonly CultureInfo[] SupportedCultures =
     [
@@ -14,9 +15,12 @@ public static class Localization
         new CultureInfo("fr-BE")
     ];
 
-    public static void AddLocalization(this IServiceCollection services)
+    public static void AddLocalization(IServiceCollection services)
     {
-        services.AddLocalization(options => options.ResourcesPath = "Resources");
+        services.AddLocalization(options =>
+        {
+            options.ResourcesPath = ResourcesPath;
+        });
         
         services.Configure<RequestLocalizationOptions>(options =>
         {
@@ -26,7 +30,7 @@ public static class Localization
         });
     }
 
-    public static void UseRequestLocalization(this WebApplication app)
+    public static void UseLocalization(WebApplication app)
     {
         var options = app.Services
             .GetRequiredService<IOptions<RequestLocalizationOptions>>()
