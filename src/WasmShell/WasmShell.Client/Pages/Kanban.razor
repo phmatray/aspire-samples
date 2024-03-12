@@ -1,0 +1,55 @@
+@page "/kanban"
+
+<PageTitle>@PageName</PageTitle>
+
+<MudContainer Class="mt-4 px-8" MaxWidth="MaxWidth.False">
+    <MudText Typo="Typo.h4">@PageName</MudText>
+    <MudText Typo="Typo.subtitle1" Class="mb-4">Drag and drop items between columns</MudText>
+    
+    <MudDropContainer
+        T="DropItem"
+        Items="@_items"
+        ItemsSelector="@((item, dropzone) => item.Column == dropzone)"
+        ItemDropped="ItemUpdated"
+        Class="d-flex flex-wrap flex-grow-1 gap-2 mt-8">
+        <ChildContent>
+            @foreach (var column in _columns)
+            {
+                <MudDropZone T="DropItem" Identifier="@column" Class="rounded mud-background-gray pa-6 flex-grow-1">
+                    <MudText Typo="Typo.h6" Class="mb-4">@column</MudText>
+                </MudDropZone>
+            }
+        </ChildContent>
+        <ItemRenderer>
+            <MudPaper Elevation="25" Class="pa-4 my-4">@context.Name</MudPaper>
+        </ItemRenderer>
+    </MudDropContainer>
+</MudContainer>
+
+@code {
+    
+    private const string PageName = "Kanban";
+    private readonly List<string> _columns = ["To Do", "In Progress", "Done"];
+
+    private void ItemUpdated(MudItemDropInfo<DropItem> dropItem)
+    {
+        if (dropItem.Item == null)
+            return;
+        
+        dropItem.Item.Column = dropItem.DropzoneIdentifier;
+        StateHasChanged();
+    }
+
+    private List<DropItem> _items =
+    [
+        new DropItem { Name = "Task 1", Column = "To Do" },
+        new DropItem { Name = "Task 2", Column = "In Progress" },
+        new DropItem { Name = "Task 3", Column = "Done" }
+    ];
+
+    public class DropItem
+    {
+        public string Name { get; init; }
+        public string Column { get; set; }
+    }
+}

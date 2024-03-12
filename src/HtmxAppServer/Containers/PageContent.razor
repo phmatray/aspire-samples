@@ -1,0 +1,19 @@
+<div class="drawer-content flex flex-col ">
+  <Header></Header>
+  <main class="flex-1 overflow-y-auto md:pt-4 pt-4 px-6  bg-base-200" @ref="_mainContentRef">
+    @ChildContent
+    <div class="h-16"></div>
+  </main>
+</div>
+
+@code {
+
+  private ElementReference _mainContentRef;
+
+  [Parameter]
+  public RenderFragment ChildContent { get; set; } = null!;
+  
+  [CascadingParameter]
+  public string? Title { get; set; }
+  
+}

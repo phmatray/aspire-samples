@@ -1,0 +1,26 @@
+@inherits HtmxComponentBase<DocumentationEndpoint.DocumentationParameters>
+
+<MainLayout Title="Documentation">
+  <div class="min-h-screen bg-base-200 flex items-center">
+    <div class="card mx-auto w-full max-w-4xl  shadow-xl">
+      <div class="py-12 p-10 h-screen flex overflow-hidden  bg-base-100 rounded-xl" >
+        <div class="flex-none p-4 overflow-y-scroll gap-6 ">
+          <h1 class="text-3xl font-bold mb-2">SEQUOIA</h1>
+          <a href="/login">
+            <button type="submit" class="btn normal-case btn-xs btn-primary">Live Preview</button>
+          </a>
+                              
+          <DocGettingStartedNav />
+          <DocFeaturesNav />
+          <DocComponentsNav />
+        </div>
+  
+        <div class="grow pt-16  overflow-y-scroll">
+          <DocGettingStartedContent />
+          <DocFeaturesContent />
+          <DocComponentsContent />
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>

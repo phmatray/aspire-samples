@@ -1,0 +1,22 @@
+{
+  "name": "htmxappserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm-run-all --parallel watch:*",
+    "watch:tailwind": "npx tailwindcss -i ./Styles/tailwind.css -o ./wwwroot/css/tailwind.css --watch",
+    "watch:dotnet": "dotnet watch run --non-interactive",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "daisyui": "^4.7.2",
+    "tailwindcss": "^3.4.1",
+    "npm-run-all": "^4.1.5"
+  }
+}

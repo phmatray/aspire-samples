@@ -1,0 +1,19 @@
+@inherits HtmxComponentBase<DocComponentsEndpoint.DocComponentsParameters>
+
+<MainLayout Title="Documentation">
+  <div class="bg-base-100  flex overflow-hidden rounded-lg" style="height: 82vh">
+    <div class="flex-none p-4">
+      <DocComponentsNav ActiveIndex="@_activeIndex"/>
+    </div>
+
+    <div class="grow pt-16 overflow-y-scroll">
+      <DocComponentsContent />
+    </div>
+  </div>
+</MainLayout>
+
+@code
+{
+  private readonly int _activeIndex = 1;
+  
+}

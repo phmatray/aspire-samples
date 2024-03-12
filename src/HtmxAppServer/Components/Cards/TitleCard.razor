@@ -1,0 +1,45 @@
+<div class="@CssClass">
+
+  @* Title for Card *@
+  <Subtitle CssClass="@SubtitleCssClass">
+    @Title
+
+    @* Top side button, show only if present *@
+    @if (TopSideButtons != null)
+    {
+      <div class="inline-block float-right">
+        @TopSideButtons
+      </div>
+    }
+  </Subtitle>
+              
+  <div class="divider mt-2"></div>
+          
+  @* Card Body *@
+  <div class="h-full w-full pb-6 bg-base-100">
+    @ChildContent
+  </div>
+</div>
+
+@code {
+  
+  [Parameter]
+  public string Title { get; set; } = default!;
+  
+  [Parameter]
+  public RenderFragment ChildContent { get; set; } = default!;
+  
+  [Parameter]
+  public RenderFragment? TopSideButtons { get; set; }
+  
+  [Parameter]
+  public string? TopMargin { get; set; }
+  
+  private string CssClass
+    => $"card w-full p-6 bg-base-100 shadow-xl {TopMargin ?? "mt-6"}";
+  
+  private string SubtitleCssClass
+    => $"text-lg font-bold {(TopSideButtons != null ? "inline-block" : string.Empty)}";
+  
+  
+}

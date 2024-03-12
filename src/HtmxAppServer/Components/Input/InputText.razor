@@ -1,0 +1,45 @@
+<div class="@($"form-control w-full {ContainerStyle}")">
+  <label class="label">
+    <span class="@($"label-text text-base-content {LabelStyle}")">@LabelTitle</span>
+  </label>
+  <input type="@InputType" value="@Value" @oninput="HandleInput" placeholder="@Placeholder" class="input input-bordered w-full" />
+</div>
+
+@code {
+  [Parameter]
+  public string LabelTitle { get; set; }
+
+  [Parameter]
+  public string LabelStyle { get; set; } = "";
+
+  [Parameter]
+  public string InputType { get; set; } = "text";
+
+  [Parameter]
+  public string ContainerStyle { get; set; } = "";
+
+  [Parameter]
+  public string DefaultValue { get; set; }
+
+  [Parameter]
+  public string Placeholder { get; set; } = "";
+
+  [Parameter]
+  public EventCallback<(string updateType, string value)> UpdateFormValue { get; set; }
+
+  [Parameter]
+  public string UpdateType { get; set; }
+
+  private string Value { get; set; }
+
+  protected override void OnInitialized()
+  {
+    Value = DefaultValue;
+  }
+
+  private void HandleInput(ChangeEventArgs e)
+  {
+    Value = e.Value.ToString();
+    UpdateFormValue.InvokeAsync((UpdateType, Value));
+  }
+}
