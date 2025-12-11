@@ -1,0 +1,6 @@
+@AspireTickerQ.Api_HostAddress = http://localhost:5136
+
+GET {{AspireTickerQ.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

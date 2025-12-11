@@ -1,0 +1,86 @@
+services:
+  env-dashboard:
+    image: "mcr.microsoft.com/dotnet/nightly/aspire-dashboard:latest"
+    expose:
+      - "18888"
+      - "18889"
+    networks:
+      - "aspire"
+    restart: "always"
+  sql:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "${SQL_PASSWORD}"
+    expose:
+      - "1433"
+    networks:
+      - "aspire"
+  mailhog:
+    image: "mailhog/mailhog:latest"
+    expose:
+      - "8025"
+      - "1025"
+    networks:
+      - "aspire"
+  api:
+    image: "${API_IMAGE}"
+    environment:
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "in_memory"
+      ASPNETCORE_FORWARDEDHEADERS_ENABLED: "true"
+      HTTP_PORTS: "${API_PORT}"
+      ConnectionStrings__appdb: "Server=sql,1433;User ID=sa;Password=${SQL_PASSWORD};TrustServerCertificate=true;Initial Catalog=appdb"
+      APPDB_HOST: "sql"
+      APPDB_PORT: "1433"
+      APPDB_USERNAME: "sa"
+      APPDB_PASSWORD: "${SQL_PASSWORD}"
+      APPDB_URI: "mssql://sql:1433/appdb"
+      APPDB_JDBCCONNECTIONSTRING: "jdbc:sqlserver://sql:1433;trustServerCertificate=true;databaseName=appdb"
+      APPDB_DATABASE: "appdb"
+      OTEL_EXPORTER_OTLP_ENDPOINT: "http://env-dashboard:18889"
+      OTEL_EXPORTER_OTLP_PROTOCOL: "grpc"
+      OTEL_SERVICE_NAME: "api"
+    ports:
+      - "${API_PORT}"
+    depends_on:
+      sql:
+        condition: "service_started"
+    networks:
+      - "aspire"
+  worker:
+    image: "${WORKER_IMAGE}"
+    environment:
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EXCEPTION_LOG_ATTRIBUTES: "true"
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_EMIT_EVENT_LOG_ATTRIBUTES: "true"
+      OTEL_DOTNET_EXPERIMENTAL_OTLP_RETRY: "in_memory"
+      ConnectionStrings__appdb: "Server=sql,1433;User ID=sa;Password=${SQL_PASSWORD};TrustServerCertificate=true;Initial Catalog=appdb"
+      APPDB_HOST: "sql"
+      APPDB_PORT: "1433"
+      APPDB_USERNAME: "sa"
+      APPDB_PASSWORD: "${SQL_PASSWORD}"
+      APPDB_URI: "mssql://sql:1433/appdb"
+      APPDB_JDBCCONNECTIONSTRING: "jdbc:sqlserver://sql:1433;trustServerCertificate=true;databaseName=appdb"
+      APPDB_DATABASE: "appdb"
+      ConnectionStrings__tickerqdb: "Server=sql,1433;User ID=sa;Password=${SQL_PASSWORD};TrustServerCertificate=true;Initial Catalog=tickerqdb"
+      TICKERQDB_HOST: "sql"
+      TICKERQDB_PORT: "1433"
+      TICKERQDB_USERNAME: "sa"
+      TICKERQDB_PASSWORD: "${SQL_PASSWORD}"
+      TICKERQDB_URI: "mssql://sql:1433/tickerqdb"
+      TICKERQDB_JDBCCONNECTIONSTRING: "jdbc:sqlserver://sql:1433;trustServerCertificate=true;databaseName=tickerqdb"
+      TICKERQDB_DATABASE: "tickerqdb"
+      OTEL_EXPORTER_OTLP_ENDPOINT: "http://env-dashboard:18889"
+      OTEL_EXPORTER_OTLP_PROTOCOL: "grpc"
+      OTEL_SERVICE_NAME: "worker"
+    depends_on:
+      sql:
+        condition: "service_started"
+      mailhog:
+        condition: "service_started"
+    networks:
+      - "aspire"
+networks:
+  aspire:
+    driver: "bridge"
