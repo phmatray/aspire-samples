@@ -2,12 +2,13 @@ using AspireTickerQ.Shared.Data;
 using AspireTickerQ.Worker.Jobs;
 using AspireTickerQ.Worker.Services;
 using Microsoft.EntityFrameworkCore;
+using TickerQ.Dashboard;
 using TickerQ.DependencyInjection;
 using TickerQ.EntityFrameworkCore;
 using TickerQ.EntityFrameworkCore.DbContextFactory;
 using TickerQ.EntityFrameworkCore.DependencyInjection;
 
-var builder = Host.CreateApplicationBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
 
@@ -53,10 +54,10 @@ builder.Services.AddScoped<WelcomeEmailJob>();
 builder.Services.AddScoped<DailyDigestJob>();
 builder.Services.AddScoped<CleanupJob>();
 
-var host = builder.Build();
+var app = builder.Build();
 
 // Apply migrations on startup (development only - use proper deployment strategy in production)
-using (var scope = host.Services.CreateScope())
+using (var scope = app.Services.CreateScope())
 {
     var appDbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     await appDbContext.Database.EnsureCreatedAsync();
@@ -65,4 +66,10 @@ using (var scope = host.Services.CreateScope())
     await tickerDbContext.Database.EnsureCreatedAsync();
 }
 
-host.Run();
+// Map Aspire health endpoints
+app.MapDefaultEndpoints();
+
+// Activate TickerQ (includes dashboard and job processing)
+app.UseTickerQ();
+
+app.Run();

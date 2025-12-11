@@ -10,7 +10,7 @@ This is a .NET Aspire distributed application with the following projects:
 - **AspireTickerQ.ServiceDefaults** - Shared Aspire configurations (service discovery, health checks, OpenTelemetry)
 - **AspireTickerQ.Shared** - Domain models (User, Notification) and DTOs shared between projects
 - **AspireTickerQ.Api** - REST API for user registration that schedules jobs
-- **AspireTickerQ.Worker** - Background job processor using TickerQ
+- **AspireTickerQ.Worker** - ASP.NET Core web application hosting TickerQ job processor and dashboard
 
 ## Features
 
@@ -19,6 +19,7 @@ This is a .NET Aspire distributed application with the following projects:
 ✅ Daily digest at 9 AM with 24h notification summary
 ✅ Cleanup job at midnight removing 30+ day old notifications
 ✅ Custom exception handler with SMTP failure alerting
+✅ TickerQ dashboard for job management and monitoring
 ✅ Exponential backoff retry strategy (60s, 5min, 15min)
 ✅ Separate databases for app data and TickerQ operations
 ✅ Development SMTP server via MailHog container
@@ -57,9 +58,31 @@ This is a .NET Aspire distributed application with the following projects:
    - Distributed traces
    - Metrics and health status
 
+## Accessing the TickerQ Dashboard
+
+Once the application is running:
+
+1. Find the Worker service port in the Aspire Dashboard
+2. Navigate to: `http://localhost:<worker-port>/tickerq`
+3. The dashboard provides:
+   - Real-time job monitoring
+   - Manual job triggers for testing
+   - Job execution history
+   - Performance statistics
+   - Scheduler controls (start/stop/restart)
+
+**Note**: The dashboard is accessible without authentication in the current configuration. For production, configure authentication via TickerQ.Dashboard settings.
+
 ## Testing the Application
 
-### 1. Test User Registration
+### 1. Access the Dashboard
+
+Open the TickerQ dashboard at `http://localhost:<worker-port>/tickerq` to verify all jobs are registered:
+- `SendWelcomeEmail` (time-based, 5min delay)
+- `SendDailyDigest` (cron: 9 AM daily)
+- `CleanupOldNotifications` (cron: midnight)
+
+### 2. Test User Registration
 
 Register a new user via the API:
 
@@ -76,31 +99,35 @@ Expected response:
 }
 ```
 
-### 2. Verify Welcome Email Job Scheduled
+### 3. Verify Welcome Email Job in Dashboard
 
-- Check the Worker logs in the Aspire Dashboard
-- You should see: "Welcome email scheduled for user {userId}"
-- The welcome email will be sent after 5 minutes
+- Open the TickerQ dashboard
+- You should see the `SendWelcomeEmail` job scheduled
+- The job will execute 5 minutes after registration
+- You can manually trigger it from the dashboard for immediate testing
 
-### 3. View Sent Emails in MailHog
+### 4. View Sent Emails in MailHog
 
 1. Open MailHog UI: `http://localhost:8025`
-2. Wait 5 minutes after registration
+2. Wait 5 minutes after registration (or manually trigger from dashboard)
 3. You should see the welcome email with subject "Welcome to TickerQ!"
 
-### 4. Test Daily Digest (Manual Trigger)
+### 5. Test Daily Digest (Manual Trigger)
 
-Since the daily digest runs at 9 AM, you can test it by:
+Since the daily digest runs at 9 AM, you can test it via the dashboard:
 
-1. Inserting test notifications into the database
-2. Manually adjusting the cron expression to run immediately
-3. Or waiting until 9 AM the next day
+1. Insert test notifications into the database
+2. Open the TickerQ dashboard
+3. Find the `SendDailyDigest` job
+4. Click "Execute Now" to manually trigger it
+5. Check MailHog for the digest email
 
-### 5. Test Cleanup Job (Manual Trigger)
+### 6. Test Cleanup Job (Manual Trigger)
 
-1. Insert notifications with `CreatedAt` set to 31+ days ago
-2. Wait for midnight or adjust the cron expression
-3. Verify old notifications are deleted
+1. Insert notifications with `CreatedAt` set to 31+ days ago into the database
+2. Open the TickerQ dashboard
+3. Manually trigger the `CleanupOldNotifications` job
+4. Verify old notifications are deleted from the database
 
 ## Database Access
 
