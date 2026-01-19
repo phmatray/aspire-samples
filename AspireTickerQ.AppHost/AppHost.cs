@@ -4,7 +4,9 @@ var builder = DistributedApplication.CreateBuilder(args);
 builder.AddDockerComposeEnvironment("env");
 
 // SQL Server with persistent lifetime for faster restarts
+// Use Azure SQL Edge for ARM64 (Apple Silicon) compatibility
 var sqlServer = builder.AddSqlServer("sql")
+    .WithImage("azure-sql-edge")
     .WithLifetime(ContainerLifetime.Persistent);
 
 // Application database for domain entities (Users, Notifications)
