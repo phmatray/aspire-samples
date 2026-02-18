@@ -1,23 +1,27 @@
-# AspireContainer — .NET Aspire Container Orchestration Demo
+# AspireContainer — .NET Aspire container orchestration demos
 
-A demonstration project for .NET Aspire container orchestration. Shows how to compose multi-service applications using the Aspire App Host and service defaults.
+A .NET Aspire project showcasing container orchestration with real-world services: Plex media server, Flame dashboard, and FileBrowser — all managed via the Aspire AppHost.
 
 ## ✨ Features
-- .NET Aspire App Host setup
-- Multi-container service composition
+- Plex media server container integration
+- Flame dashboard for service management
+- FileBrowser for web-based file management
+- .NET Aspire AppHost orchestration
 - Service discovery and health checks
-- Environment configuration
 
 ## 📦 Installation
 ```bash
-dotnet run --project AspireContainer.AppHost
+git clone https://github.com/phmatray/AspireContainer
+cd AspireContainer
+dotnet run --project AspireContainer.Demo
 ```
 
 ## 🚀 Quick Start
-```csharp
-var builder = DistributedApplication.CreateBuilder(args);
-builder.AddProject<Projects.AspireContainer_Demo>("demo");
-builder.Build().Run();
+```bash
+dotnet run --project AspireContainer.Demo
+# Aspire Dashboard: https://localhost:15000
+# Flame Dashboard: http://localhost:5005
+# FileBrowser: http://localhost:8080
 ```
 
 ## 📄 License
