@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Blazor.Heroicons" Version="2.1.2" />
+    <PackageReference Include="Blazor.Heroicons" Version="2.2.0" />
     <PackageReference Include="FastComponents" Version="0.0.0-alpha.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.QuickGrid" Version="8.0.2" />
     <PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.2" />
