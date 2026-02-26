@@ -15,7 +15,7 @@
 
     <ItemGroup>
       <PackageReference Include="AspNetCore.HealthChecks.Uris" Version="8.0.1" />
-      <PackageReference Include="Microsoft.Extensions.ServiceDiscovery.Yarp" Version="8.2.2" />
+      <PackageReference Include="Microsoft.Extensions.ServiceDiscovery.Yarp" Version="10.3.0" />
       <PackageReference Include="Yarp.ReverseProxy" Version="2.1.0" />
     </ItemGroup>
 
