@@ -9,7 +9,7 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
         <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.1" />
-        <PackageReference Include="StrawberryShake.Server" Version="14.0.0-p.39" />
+        <PackageReference Include="StrawberryShake.Server" Version="14.3.0" />
     </ItemGroup>
 
 </Project>
