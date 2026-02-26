@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MudBlazor" Version="6.17.0" />
+    <PackageReference Include="MudBlazor" Version="6.21.0" />
     <ProjectReference Include="..\..\Host\AspireAppWithMicroFrontends.ServiceDefaults\AspireAppWithMicroFrontends.ServiceDefaults.csproj" />
     <ProjectReference Include="..\..\Modules\Blue\BlueModule.Web\BlueModule.Web.csproj" />
     <ProjectReference Include="..\..\Modules\Green\GreenModule.Web\GreenModule.Web.csproj" />
