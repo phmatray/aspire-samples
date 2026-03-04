@@ -5,29 +5,41 @@
     ":automergeMinor",
     "schedule:earlyMondays"
   ],
-  "labels": ["dependencies"],
+  "labels": [
+    "dependencies"
+  ],
   "commitMessagePrefix": "deps:",
   "packageRules": [
     {
       "description": "Group all .NET dependency updates together",
-      "matchManagers": ["nuget"],
+      "matchManagers": [
+        "nuget"
+      ],
       "groupName": "dotnet dependencies",
       "groupSlug": "dotnet"
     },
     {
       "description": "Automerge minor and patch updates",
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ],
       "automerge": true
     },
     {
       "description": "Automerge dev dependency updates",
-      "matchDepTypes": ["devDependencies"],
+      "matchDepTypes": [
+        "devDependencies"
+      ],
       "automerge": true
     },
     {
       "description": "Require dashboard approval for major updates",
-      "matchUpdateTypes": ["major"],
+      "matchUpdateTypes": [
+        "major"
+      ],
       "dependencyDashboardApproval": true
     }
-  ]
+  ],
+  "platformAutomerge": true
 }
