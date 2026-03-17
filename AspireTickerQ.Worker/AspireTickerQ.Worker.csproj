@@ -10,7 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="13.1.2" />
     <PackageReference Include="MailKit" Version="4.15.1" />
-    <PackageReference Include="TickerQ" Version="10.2.1" />
+    <PackageReference Include="TickerQ" Version="10.2.2" />
     <PackageReference Include="TickerQ.Dashboard" Version="10.2.1" />
     <PackageReference Include="TickerQ.EntityFrameworkCore" Version="10.2.1" />
   </ItemGroup>
