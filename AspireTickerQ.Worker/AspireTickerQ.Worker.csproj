@@ -13,7 +13,7 @@
     <PackageReference Include="TheAppManager" Version="2.0.0" />
     <PackageReference Include="TickerQ" Version="10.2.2" />
     <PackageReference Include="TickerQ.Dashboard" Version="10.2.2" />
-    <PackageReference Include="TickerQ.EntityFrameworkCore" Version="10.2.2" />
+    <PackageReference Include="TickerQ.EntityFrameworkCore" Version="10.3.0" />
   </ItemGroup>
 
   <ItemGroup>
