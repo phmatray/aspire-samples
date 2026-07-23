@@ -23,6 +23,17 @@ adapters at the edges.
 
 📖 **Full documentation site:** <https://phmatray.github.io/AspireStrapi/>
 
+## Features ✨
+
+- **Headless CMS authoring** — editors write articles, authors, and categories in the Strapi 5 admin UI; the Blazor frontend renders them live, with no rebuild or redeploy needed to publish.
+- **Typed GraphQL client** — StrawberryShake generates a typed `BlogClient` from hand-written `.graphql` queries against Strapi's flattened Strapi 5 schema.
+- **Hexagonal architecture** — `AspireStrapi.Domain` and `AspireStrapi.Application` (the `ContentService` use case and its repository ports) never depend on Strapi, GraphQL, or Blazor.
+- **Articles, authors & categories pages** — dedicated Blazor routes (`/articles`, `/authors`, `/categories`, `/headless-cms`) list and filter content pulled straight from the CMS.
+- **Seeded demo content** — on first run, Strapi seeds 5 articles, 2 authors, and 5 categories with cover images, and grants public `find`/`findOne` permissions automatically.
+- **.NET Aspire orchestration** — a single AppHost boots Postgres, Strapi, and the Blazor app together with service discovery, health checks, and OpenTelemetry.
+- **One-command Compose deployment** — `aspire publish` emits a ready-to-run `docker-compose.yaml` + `.env` for running the whole stack on OrbStack.
+- **Editorial Tailwind design** — "The Headless Press" is a magazine-style reading UI built with Tailwind CSS v4.
+
 ## Tech stack 💻
 
 - **.NET 10 Aspire** — app orchestration, service discovery, and Docker Compose publishing
@@ -169,6 +180,16 @@ The article's dynamic-zone **body** (`blocks`) is fetched with a small
 hand-written GraphQL query (`StrapiArticleBodyClient`) because the generated
 client cannot reliably model the dynamic-zone union. All GraphQL request bodies
 use lowercase JSON keys (`query`, `variables`).
+
+## Roadmap 🗺️
+
+- [ ] Authentication/authorization for a private admin preview mode
+- [ ] Output caching or incremental rendering for published articles
+- [ ] Full-text search across articles
+- [ ] Broader automated smoke-test coverage for Strapi content types
+- [ ] A hosted live demo alongside the documentation site
+
+Track progress and proposals in the [open issues](https://github.com/phmatray/AspireStrapi/issues).
 
 ## License 📄
 
