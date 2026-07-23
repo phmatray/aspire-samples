@@ -202,6 +202,14 @@ The solution enforces strict code analysis via `Directory.Build.props`:
 - All analysis categories set to `All` (design, naming, performance, security, etc.)
 - `Microsoft.CodeAnalysis.NetAnalyzers` included as a build-time dependency
 
+<!-- portfolio-roadmap:start -->
+
+## Roadmap
+
+Planned work and known limitations are tracked in the [open issues](https://github.com/phmatray/AspireAppWithMicroFrontends/issues). Contributions toward them are welcome.
+
+<!-- portfolio-roadmap:end -->
+
 ## License
 
 See the repository for license details.
