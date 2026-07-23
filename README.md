@@ -2,6 +2,20 @@
 
 # AspireContainer — .NET Aspire container orchestration demos
 
+<!-- portfolio-badges:start -->
+<!-- Identity -->
+[![phmatray - AspireContainer](https://img.shields.io/static/v1?label=phmatray&message=AspireContainer&color=blue&logo=github)](https://github.com/phmatray/AspireContainer)
+![Top language](https://img.shields.io/github/languages/top/phmatray/AspireContainer)
+[![Stars](https://img.shields.io/github/stars/phmatray/AspireContainer?style=social)](https://github.com/phmatray/AspireContainer/stargazers)
+[![Forks](https://img.shields.io/github/forks/phmatray/AspireContainer?style=social)](https://github.com/phmatray/AspireContainer/network/members)
+
+<!-- Activity -->
+[![Issues](https://img.shields.io/github/issues/phmatray/AspireContainer)](https://github.com/phmatray/AspireContainer/issues)
+[![Pull requests](https://img.shields.io/github/issues-pr/phmatray/AspireContainer)](https://github.com/phmatray/AspireContainer/pulls)
+[![Last commit](https://img.shields.io/github/last-commit/phmatray/AspireContainer)](https://github.com/phmatray/AspireContainer/commits)
+<!-- portfolio-badges:end -->
+
+
 A .NET Aspire project showcasing container orchestration with real-world services: Plex media server, Flame dashboard, and FileBrowser — all managed via the Aspire AppHost.
 
 ## ✨ Features
