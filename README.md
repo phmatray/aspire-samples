@@ -1,3 +1,5 @@
+![AspirePrestashop banner](.github/banner.png)
+
 # AspirePrestashop - PrestaShop Integration with .NET Aspire
 
 This project demonstrates how to integrate PrestaShop with .NET Aspire using Docker containers and REST API.
