@@ -15,6 +15,25 @@
 [![Last commit](https://img.shields.io/github/last-commit/phmatray/aspire-app-with-n8n)](https://github.com/phmatray/aspire-app-with-n8n/commits)
 <!-- portfolio-badges:end -->
 
+<!-- portfolio-toc:start -->
+
+## Table of Contents
+
+- [Introduction 📖](#introduction-)
+- [Note to Developers 👨‍💻](#note-to-developers-)
+- [Features 🌟](#features-)
+- [Getting Started 🚦](#getting-started-)
+- [n8n Setup 🌐](#n8n-setup-)
+- [Usage 🧑‍💻](#usage-)
+- [Tech Stack](#tech-stack)
+- [Roadmap 🗺️](#roadmap-)
+- [Contributing 🤝](#contributing-)
+- [Support and Contact 📬](#support-and-contact-)
+- [License 📜](#license-)
+
+<!-- portfolio-toc:end -->
+
+
 
 ---
 
