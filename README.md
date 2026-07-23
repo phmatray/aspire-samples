@@ -2,6 +2,20 @@
 
 # AspirePrestashop - PrestaShop Integration with .NET Aspire
 
+<!-- portfolio-badges:start -->
+<!-- Identity -->
+[![phmatray - AspirePrestashop](https://img.shields.io/static/v1?label=phmatray&message=AspirePrestashop&color=blue&logo=github)](https://github.com/phmatray/AspirePrestashop)
+![Top language](https://img.shields.io/github/languages/top/phmatray/AspirePrestashop)
+[![Stars](https://img.shields.io/github/stars/phmatray/AspirePrestashop?style=social)](https://github.com/phmatray/AspirePrestashop/stargazers)
+[![Forks](https://img.shields.io/github/forks/phmatray/AspirePrestashop?style=social)](https://github.com/phmatray/AspirePrestashop/network/members)
+
+<!-- Activity -->
+[![Issues](https://img.shields.io/github/issues/phmatray/AspirePrestashop)](https://github.com/phmatray/AspirePrestashop/issues)
+[![Pull requests](https://img.shields.io/github/issues-pr/phmatray/AspirePrestashop)](https://github.com/phmatray/AspirePrestashop/pulls)
+[![Last commit](https://img.shields.io/github/last-commit/phmatray/AspirePrestashop)](https://github.com/phmatray/AspirePrestashop/commits)
+<!-- portfolio-badges:end -->
+
+
 This project demonstrates how to integrate PrestaShop with .NET Aspire using Docker containers and REST API.
 
 ## Architecture
