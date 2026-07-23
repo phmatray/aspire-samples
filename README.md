@@ -1,5 +1,20 @@
 # .NET Aspire Samples
 
+<!-- portfolio-badges:start -->
+<!-- Identity -->
+[![phmatray - aspire-samples](https://img.shields.io/static/v1?label=phmatray&message=aspire-samples&color=blue&logo=github)](https://github.com/phmatray/aspire-samples)
+![Top language](https://img.shields.io/github/languages/top/phmatray/aspire-samples)
+[![Stars](https://img.shields.io/github/stars/phmatray/aspire-samples?style=social)](https://github.com/phmatray/aspire-samples/stargazers)
+[![Forks](https://img.shields.io/github/forks/phmatray/aspire-samples?style=social)](https://github.com/phmatray/aspire-samples/network/members)
+[![License](https://img.shields.io/github/license/phmatray/aspire-samples)](https://github.com/phmatray/aspire-samples/blob/HEAD/LICENSE)
+
+<!-- Activity -->
+[![Issues](https://img.shields.io/github/issues/phmatray/aspire-samples)](https://github.com/phmatray/aspire-samples/issues)
+[![Pull requests](https://img.shields.io/github/issues-pr/phmatray/aspire-samples)](https://github.com/phmatray/aspire-samples/pulls)
+[![Last commit](https://img.shields.io/github/last-commit/phmatray/aspire-samples)](https://github.com/phmatray/aspire-samples/commits)
+<!-- portfolio-badges:end -->
+
+
 > A collection of **.NET Aspire** demos — each folder is a self-contained sample
 > showing how to orchestrate a different integration with Aspire.
 
