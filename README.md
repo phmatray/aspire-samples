@@ -310,6 +310,14 @@ Before deploying to production:
 - **SQL Server** - Database for application and job data
 - **MailHog** - Development SMTP server
 
+<!-- portfolio-roadmap:start -->
+
+## Roadmap
+
+Planned work and known limitations are tracked in the [open issues](https://github.com/phmatray/AspireTickerQ/issues). Contributions toward them are welcome.
+
+<!-- portfolio-roadmap:end -->
+
 ## License
 
 This project is licensed under the MIT License.
