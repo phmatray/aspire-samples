@@ -33,6 +33,15 @@ The .NET 8 Aspire App represents the latest in .NET technology, designed for bui
 ## Note to Developers 👨‍💻
 This application is a demonstration and not intended for production use. It serves as a foundation for you to build and customize your applications using n8n and .NET 8 Aspire App.
 
+## Features 🌟
+
+- **Aspire-orchestrated stack**: `AppHost` wires up the n8n container, the `ApiService`, and the Blazor `Web` frontend into a single distributed application with service discovery, all launched from one entry point.
+- **Custom n8n container extension**: `AddN8NContainer()` (`N8NBuilderExtensions`) adds the official `n8nio/n8n` image, mounts a persisted `containers/n8n/data` volume, sets the container's timezone to match the host, and exposes an HTTP service binding on port `5678`.
+- **MediatR-based minimal APIs**: `AutomationEndpoints` and `WeatherEndpoints` expose vertical-slice, MediatR-backed minimal API endpoints via a `MediateGet<T>` extension, keeping request/handler/response together per feature.
+- **n8n webhook bridge**: `ExecuteAutomationHandler` calls a pre-configured n8n webhook (`search-on-google`) with `first_name`/`last_name` query parameters and relays the workflow's response back to the caller.
+- **Interactive Blazor demo page**: The `/automation` page (Interactive Server render mode) submits a name through a form, calls the API, and displays the live n8n URL plus the workflow's returned message.
+- **Pre-seeded n8n instance**: A working SQLite-backed n8n database ships in `containers/n8n/data`, so the demo workflow is ready to run without manual workflow setup.
+
 ## Getting Started 🚦
 
 ### Prerequisites 📋
@@ -58,6 +67,21 @@ To configure the n8n container, use the following default settings:
 
 *Note: These settings can be modified based on your requirements. A SQLite database stores the n8n data, located in the `n8n-data` folder.*
 
+## Usage 🧑‍💻
+
+Launch the whole stack (n8n container + API + Blazor web) through the Aspire AppHost:
+
+```bash
+dotnet run --project AspireAppWithAutomation/AspireAppWithAutomation.AppHost
+```
+
+This opens the .NET Aspire dashboard and starts the `n8n` container (published on the port configured in `N8NBuilderExtensions`, default `5678`), the `apiservice`, and the `webfrontend` with a reference to it.
+
+Then:
+1. Sign in to n8n with the default credentials from [n8n Setup](#n8n-setup-) above (or your own, if changed).
+2. Open the Blazor app and go to the `/automation` page.
+3. Enter a first and last name and submit. The page calls `ApiServiceHttpClient.ExecuteAutomationAsync`, which hits `GET /api/v1/automation/execute-automation/{firstName}/{lastName}` on the API. The API in turn calls the `search-on-google` n8n webhook and displays the returned message in the results table, alongside the live n8n URL.
+
 <!-- portfolio-techstack:start -->
 
 ## Tech Stack
@@ -73,6 +97,16 @@ To configure the n8n container, use the following default settings:
 - OpenTelemetry.Extensions.Hosting
 
 <!-- portfolio-techstack:end -->
+
+## Roadmap 🗺️
+
+- [ ] Add automated tests around the `Automation` and `Weather` MediatR handlers
+- [ ] Support configuring/importing additional n8n workflows beyond the bundled `search-on-google` demo
+- [ ] Parameterize the n8n container port and credentials via Aspire configuration instead of hard-coded defaults
+- [ ] Add authentication/authorization to the ApiService endpoints
+- [ ] Publish a docker-compose or Aspire deployment manifest for non-local environments
+
+See the [open issues](https://github.com/phmatray/aspire-app-with-n8n/issues) for the current backlog.
 
 ## Contributing 🤝
 We welcome contributions! If you would like to contribute, please feel free to submit a pull request or open an issue for discussion.
