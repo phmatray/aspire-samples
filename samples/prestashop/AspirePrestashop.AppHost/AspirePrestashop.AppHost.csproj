@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Sdk Name="Aspire.AppHost.Sdk" Version="13.2.2"/>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>dc519745-bbd4-4f49-93bb-4a55defe7cf2</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspirePrestashop.ApiService\AspirePrestashop.ApiService.csproj"/>
+    <ProjectReference Include="..\AspirePrestashop.Web\AspirePrestashop.Web.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="13.2.2"/>
+    <PackageReference Include="Aspire.Hosting.MySql" Version="13.2.2"/>
+  </ItemGroup>
+
+</Project>

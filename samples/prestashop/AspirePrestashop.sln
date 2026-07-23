@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspirePrestashop.AppHost", "AspirePrestashop.AppHost\AspirePrestashop.AppHost.csproj", "{BAE96E50-CB07-407D-9BEE-0EB25B42B09E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspirePrestashop.ServiceDefaults", "AspirePrestashop.ServiceDefaults\AspirePrestashop.ServiceDefaults.csproj", "{B2011034-8A51-459E-BF81-0A829A4C04B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspirePrestashop.ApiService", "AspirePrestashop.ApiService\AspirePrestashop.ApiService.csproj", "{5FFFB3DA-ADE0-4023-B727-8BB3521BFECB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspirePrestashop.Web", "AspirePrestashop.Web\AspirePrestashop.Web.csproj", "{36E2A3B2-C757-45DF-949E-51DE1739D7D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BAE96E50-CB07-407D-9BEE-0EB25B42B09E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAE96E50-CB07-407D-9BEE-0EB25B42B09E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAE96E50-CB07-407D-9BEE-0EB25B42B09E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAE96E50-CB07-407D-9BEE-0EB25B42B09E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2011034-8A51-459E-BF81-0A829A4C04B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2011034-8A51-459E-BF81-0A829A4C04B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2011034-8A51-459E-BF81-0A829A4C04B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2011034-8A51-459E-BF81-0A829A4C04B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FFFB3DA-ADE0-4023-B727-8BB3521BFECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FFFB3DA-ADE0-4023-B727-8BB3521BFECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FFFB3DA-ADE0-4023-B727-8BB3521BFECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FFFB3DA-ADE0-4023-B727-8BB3521BFECB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36E2A3B2-C757-45DF-949E-51DE1739D7D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36E2A3B2-C757-45DF-949E-51DE1739D7D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36E2A3B2-C757-45DF-949E-51DE1739D7D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36E2A3B2-C757-45DF-949E-51DE1739D7D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

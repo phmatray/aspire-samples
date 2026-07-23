@@ -1,0 +1,59 @@
+@page "/products"
+@using AspirePrestashop.Web
+@inject PrestaShopApiClient PrestaShopApi
+
+<PageTitle>PrestaShop Products</PageTitle>
+
+<h1>PrestaShop Products</h1>
+
+<p>This component demonstrates fetching product data from PrestaShop.</p>
+
+@if (products == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Reference</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Reference</td>
+                    <td>@product.Name</td>
+                    <td>@product.Price.ToString("C")</td>
+                    <td>@product.Quantity</td>
+                    <td>@(product.Active ? "Yes" : "No")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Product[]? products;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            products = await PrestaShopApi.GetProductsAsync();
+        }
+        catch (Exception)
+        {
+            // In production, log this error properly
+            products = [];
+        }
+    }
+}
