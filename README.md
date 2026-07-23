@@ -15,6 +15,30 @@
 [![Last commit](https://img.shields.io/github/last-commit/phmatray/AspireTickerQ)](https://github.com/phmatray/AspireTickerQ/commits)
 <!-- portfolio-badges:end -->
 
+<!-- portfolio-toc:start -->
+
+## Table of Contents
+
+- [Architecture](#architecture)
+- [Features](#features)
+- [Prerequisites](#prerequisites)
+- [Quick Start](#quick-start)
+- [Accessing the TickerQ Dashboard](#accessing-the-tickerq-dashboard)
+- [Testing the Application](#testing-the-application)
+- [Database Access](#database-access)
+- [Configuration](#configuration)
+- [Project Structure](#project-structure)
+- [Scheduled Jobs](#scheduled-jobs)
+- [Production Deployment](#production-deployment)
+- [Troubleshooting](#troubleshooting)
+- [Technologies Used](#technologies-used)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+- [Contributing](#contributing)
+
+<!-- portfolio-toc:end -->
+
+
 
 A production-ready notification system built with .NET Aspire and TickerQ, demonstrating scheduled background jobs, user registration, and email notifications.
 
