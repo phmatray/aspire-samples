@@ -38,6 +38,16 @@
 
 A demonstration project showcasing **micro-frontends architecture** built with **.NET Aspire** and **Blazor**. The application orchestrates multiple independent UI modules (Blue, Green, Red, Yellow) — each with its own API service, domain layer, and web components — composed into several shell applications using different rendering strategies.
 
+## Features
+
+- **Multi-shell composition** — the same Blue/Green/Red/Yellow micro-frontend modules are rendered by three interchangeable shells: server-side Blazor (`Web`), Blazor WebAssembly (`WasmShell`), and an HTMX server-rendered shell (`HtmxAppServer`).
+- **Four-project module structure** — each color module ships its own `Domain`, `ApiService`, `ApiClient` and `Web` (Blazor components) projects, kept fully independent and composable.
+- **YARP-based BFF gateway** — `Web.Bff.Gateway` aggregates and reverse-proxies the module APIs behind a single backend-for-frontend endpoint.
+- **.NET Aspire orchestration** — the `AppHost` wires up service discovery, health checks and a unified dashboard (logs, traces, health) for every service with a single `dotnet run`.
+- **Identity & persistence in WasmShell** — the WebAssembly shell adds ASP.NET Core Identity authentication backed by Entity Framework Core + SQLite.
+- **Per-module solution filters** — `.slnf` filters (`Blue.slnf`, `Green.slnf`, `Red.slnf`, `Yellow.slnf`, `Black.slnf`) let a developer load only the Host plus one module in the IDE.
+- **Strict static analysis** — `Directory.Build.props` enables `8.0-recommended` .NET analyzers with all categories (design, naming, performance, security) turned on, backed by `Microsoft.CodeAnalysis.NetAnalyzers`.
+
 ## Architecture Overview
 
 The solution follows a modular monorepo approach where each feature module is fully self-contained with its own domain, API service, API client, and Blazor web components. A .NET Aspire AppHost orchestrates all services and frontends, providing service discovery, health checks, and a unified developer dashboard.
