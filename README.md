@@ -1,3 +1,5 @@
+![aspire-samples banner](.github/banner.png)
+
 # .NET Aspire Samples
 
 <!-- portfolio-badges:start -->
