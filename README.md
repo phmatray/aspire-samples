@@ -71,6 +71,22 @@ This project demonstrates how to integrate PrestaShop with .NET Aspire using Doc
 
 ---
 
+<!-- portfolio-techstack:start -->
+
+## Tech Stack
+
+- **.NET 9**
+- Microsoft.AspNetCore.OpenApi
+- Aspire.Hosting.AppHost
+- Aspire.Hosting.MySql
+- Microsoft.Extensions.Http.Resilience
+- Microsoft.Extensions.ServiceDiscovery
+- OpenTelemetry.Exporter.OpenTelemetryProtocol
+- OpenTelemetry.Extensions.Hosting
+- OpenTelemetry.Instrumentation.AspNetCore
+
+<!-- portfolio-techstack:end -->
+
 <!-- portfolio-sections:start -->
 
 ## Contributing
