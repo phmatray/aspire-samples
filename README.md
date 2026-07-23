@@ -1,3 +1,5 @@
+![aspire-app-with-n8n banner](.github/banner.png)
+
 # .NET 8 Aspire App with n8n Automation 🚀
 
 ---
