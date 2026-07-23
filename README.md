@@ -14,6 +14,21 @@
 [![Last commit](https://img.shields.io/github/last-commit/phmatray/aspire-samples)](https://github.com/phmatray/aspire-samples/commits)
 <!-- portfolio-badges:end -->
 
+<!-- portfolio-toc:start -->
+
+## Table of Contents
+
+- [Samples](#samples)
+- [Running a sample](#running-a-sample)
+- [History](#history)
+- [Tech Stack](#tech-stack)
+- [Roadmap](#roadmap)
+- [License](#license)
+- [Contributing](#contributing)
+
+<!-- portfolio-toc:end -->
+
+
 
 > A collection of **.NET Aspire** demos — each folder is a self-contained sample
 > showing how to orchestrate a different integration with Aspire.
