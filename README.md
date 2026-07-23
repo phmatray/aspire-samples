@@ -33,6 +33,16 @@
 
 This project demonstrates how to integrate PrestaShop with .NET Aspire using Docker containers and REST API.
 
+## Features
+
+- **PrestaShop container orchestration**: The Aspire `AppHost` spins up a PrestaShop 8 (Apache) container plus a MySQL 8 database, auto-installing the shop (`PS_INSTALL_AUTO=1`) with a fixed admin login and persisted Docker volumes.
+- **REST bridge to PrestaShop's Web Service**: `PrestaShopApiClient` authenticates with a PrestaShop API key and parses PrestaShop's XML responses into typed DTOs (`Product`, `Category`, `Customer`, `Order`).
+- **Product/Category/Customer/Order API**: `PrestaShopController` exposes `/api/prestashop/products[/{id}]`, `/categories`, `/customers` and `/orders` as JSON via the ApiService.
+- **Blazor product catalog page**: `Products.razor` calls the API service and renders the product list (ID, reference, name, price, quantity, active) in a table.
+- **Resilience & service discovery by default**: `ServiceDefaults.AddServiceDefaults` wires a standard HTTP resilience handler and service discovery into every `HttpClient`.
+- **Built-in observability**: OpenTelemetry tracing/metrics plus `/health` and `/alive` health-check endpoints are configured for every service and surfaced in the Aspire dashboard.
+- **Health-gated startup**: The AppHost uses `WithHttpHealthCheck` and `WaitFor` so the API and web frontend wait for PrestaShop/MySQL to be ready before serving traffic.
+
 ## Architecture
 
 - **AspirePrestashop.AppHost**: Orchestrates the application components
@@ -77,6 +87,20 @@ This project demonstrates how to integrate PrestaShop with .NET Aspire using Doc
    - Web Frontend: http://localhost:5XXX
    - API Service: http://localhost:5XXX
    - PrestaShop: http://localhost:8080
+
+## Usage
+
+Once the AppHost is running, browse the Blazor catalog at `http://localhost:5XXX/products`, or call the ApiService directly:
+
+```bash
+curl http://localhost:5XXX/api/prestashop/products
+curl http://localhost:5XXX/api/prestashop/products/1
+curl http://localhost:5XXX/api/prestashop/categories
+curl http://localhost:5XXX/api/prestashop/customers
+curl http://localhost:5XXX/api/prestashop/orders
+```
+
+Each endpoint fetches XML from PrestaShop's Web Service and returns it as JSON. Use the Aspire Dashboard to inspect traces, logs and health status across the PrestaShop container, MySQL, the API service and the web frontend.
 
 ## Notes
 
