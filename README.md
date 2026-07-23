@@ -2,6 +2,23 @@
 
 # AspireStrapi 🚀
 
+<!-- portfolio-toc:start -->
+
+## Table of Contents
+
+- [Features ✨](#features-)
+- [Tech stack 💻](#tech-stack-)
+- [Architecture 🏗️](#architecture-)
+- [Quickstart ⚡](#quickstart-)
+- [Headless CMS 📰](#headless-cms-)
+- [GraphQL usage (Strapi 5 flattened schema) 🔎](#graphql-usage-strapi-5-flattened-schema-)
+- [Roadmap 🗺️](#roadmap-)
+- [License 📄](#license-)
+- [Contributing](#contributing)
+
+<!-- portfolio-toc:end -->
+
+
 [![.NET](https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
 [![Aspire](https://img.shields.io/badge/.NET%20Aspire-orchestration-512BD4)](https://learn.microsoft.com/dotnet/aspire/)
 [![Strapi](https://img.shields.io/badge/Strapi-5-4945FF?logo=strapi&logoColor=white)](https://strapi.io/)
