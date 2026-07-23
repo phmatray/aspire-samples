@@ -1,3 +1,5 @@
+![AspireTickerQ banner](.github/banner.png)
+
 # AspireTickerQ
 
 A production-ready notification system built with .NET Aspire and TickerQ, demonstrating scheduled background jobs, user registration, and email notifications.
