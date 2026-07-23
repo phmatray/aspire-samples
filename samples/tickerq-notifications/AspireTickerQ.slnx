@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="AspireTickerQ.Api/AspireTickerQ.Api.csproj" />
+  <Project Path="AspireTickerQ.AppHost/AspireTickerQ.AppHost.csproj" />
+  <Project Path="AspireTickerQ.ServiceDefaults/AspireTickerQ.ServiceDefaults.csproj" />
+  <Project Path="AspireTickerQ.Shared/AspireTickerQ.Shared.csproj" />
+  <Project Path="AspireTickerQ.Worker/AspireTickerQ.Worker.csproj" />
+</Solution>

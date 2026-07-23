@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-AspireTickerQ.Worker-a4c063c6-aab3-4e71-a08f-7670b2c5214f</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="13.2.2" />
+    <PackageReference Include="MailKit" Version="4.16.0" />
+    <PackageReference Include="TheAppManager" Version="2.0.0" />
+    <PackageReference Include="TickerQ" Version="10.3.0" />
+    <PackageReference Include="TickerQ.Dashboard" Version="10.3.0" />
+    <PackageReference Include="TickerQ.EntityFrameworkCore" Version="10.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AspireTickerQ.ServiceDefaults\AspireTickerQ.ServiceDefaults.csproj" />
+    <ProjectReference Include="..\AspireTickerQ.Shared\AspireTickerQ.Shared.csproj" />
+  </ItemGroup>
+</Project>
