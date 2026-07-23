@@ -2,6 +2,20 @@
 
 # AspireTickerQ
 
+<!-- portfolio-badges:start -->
+<!-- Identity -->
+[![phmatray - AspireTickerQ](https://img.shields.io/static/v1?label=phmatray&message=AspireTickerQ&color=blue&logo=github)](https://github.com/phmatray/AspireTickerQ)
+![Top language](https://img.shields.io/github/languages/top/phmatray/AspireTickerQ)
+[![Stars](https://img.shields.io/github/stars/phmatray/AspireTickerQ?style=social)](https://github.com/phmatray/AspireTickerQ/stargazers)
+[![Forks](https://img.shields.io/github/forks/phmatray/AspireTickerQ?style=social)](https://github.com/phmatray/AspireTickerQ/network/members)
+
+<!-- Activity -->
+[![Issues](https://img.shields.io/github/issues/phmatray/AspireTickerQ)](https://github.com/phmatray/AspireTickerQ/issues)
+[![Pull requests](https://img.shields.io/github/issues-pr/phmatray/AspireTickerQ)](https://github.com/phmatray/AspireTickerQ/pulls)
+[![Last commit](https://img.shields.io/github/last-commit/phmatray/AspireTickerQ)](https://github.com/phmatray/AspireTickerQ/commits)
+<!-- portfolio-badges:end -->
+
+
 A production-ready notification system built with .NET Aspire and TickerQ, demonstrating scheduled background jobs, user registration, and email notifications.
 
 ## Architecture
