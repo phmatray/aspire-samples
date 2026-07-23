@@ -58,6 +58,22 @@ To configure the n8n container, use the following default settings:
 
 *Note: These settings can be modified based on your requirements. A SQLite database stores the n8n data, located in the `n8n-data` folder.*
 
+<!-- portfolio-techstack:start -->
+
+## Tech Stack
+
+- **.NET 8**
+- MediatR
+- Microsoft.Extensions.Http
+- Swashbuckle.AspNetCore
+- Aspire.Hosting
+- Microsoft.Extensions.Http.Resilience
+- Microsoft.Extensions.ServiceDiscovery
+- OpenTelemetry.Exporter.OpenTelemetryProtocol
+- OpenTelemetry.Extensions.Hosting
+
+<!-- portfolio-techstack:end -->
+
 ## Contributing 🤝
 We welcome contributions! If you would like to contribute, please feel free to submit a pull request or open an issue for discussion.
 
