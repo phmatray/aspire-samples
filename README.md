@@ -1,3 +1,5 @@
+![AspireAppWithMicroFrontends banner](.github/banner.png)
+
 # AspireAppWithMicroFrontends
 
 A demonstration project showcasing **micro-frontends architecture** built with **.NET Aspire** and **Blazor**. The application orchestrates multiple independent UI modules (Blue, Green, Red, Yellow) — each with its own API service, domain layer, and web components — composed into several shell applications using different rendering strategies.
