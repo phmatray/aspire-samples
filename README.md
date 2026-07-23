@@ -16,6 +16,25 @@
 [![Last commit](https://img.shields.io/github/last-commit/phmatray/AspireAppWithMicroFrontends)](https://github.com/phmatray/AspireAppWithMicroFrontends/commits)
 <!-- portfolio-badges:end -->
 
+<!-- portfolio-toc:start -->
+
+## Table of Contents
+
+- [Architecture Overview](#architecture-overview)
+- [Key Technologies](#key-technologies)
+- [Project Structure](#project-structure)
+- [Services](#services)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Solution Filters](#solution-filters)
+- [Module Architecture](#module-architecture)
+- [Code Quality](#code-quality)
+- [License](#license)
+- [Contributing](#contributing)
+
+<!-- portfolio-toc:end -->
+
+
 
 A demonstration project showcasing **micro-frontends architecture** built with **.NET Aspire** and **Blazor**. The application orchestrates multiple independent UI modules (Blue, Green, Red, Yellow) — each with its own API service, domain layer, and web components — composed into several shell applications using different rendering strategies.
 
