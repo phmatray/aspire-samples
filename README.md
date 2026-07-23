@@ -15,6 +15,20 @@
 [![Last commit](https://img.shields.io/github/last-commit/phmatray/AspireContainer)](https://github.com/phmatray/AspireContainer/commits)
 <!-- portfolio-badges:end -->
 
+<!-- portfolio-toc:start -->
+
+## Table of Contents
+
+- [✨ Features](#-features)
+- [📦 Installation](#-installation)
+- [🚀 Quick Start](#-quick-start)
+- [Tech Stack](#tech-stack)
+- [📄 License](#-license)
+- [Contributing](#contributing)
+
+<!-- portfolio-toc:end -->
+
+
 
 A .NET Aspire project showcasing container orchestration with real-world services: Plex media server, Flame dashboard, and FileBrowser — all managed via the Aspire AppHost.
 
