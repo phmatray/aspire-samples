@@ -48,6 +48,22 @@ Each sample requires the [.NET Aspire workload](https://learn.microsoft.com/dotn
 Each sample was merged with **full git history preserved** (`git subtree`). The
 original repositories are archived and redirect here.
 
+<!-- portfolio-techstack:start -->
+
+## Tech Stack
+
+- **.NET 8**
+- Aspire.Hosting
+- Microsoft.Extensions.Http.Resilience
+- Microsoft.Extensions.ServiceDiscovery
+- OpenTelemetry.Exporter.OpenTelemetryProtocol
+- OpenTelemetry.Extensions.Hosting
+- OpenTelemetry.Instrumentation.AspNetCore
+- OpenTelemetry.Instrumentation.GrpcNetClient
+- OpenTelemetry.Instrumentation.Http
+
+<!-- portfolio-techstack:end -->
+
 ## License
 
 MIT — see [`LICENSE`](LICENSE).
