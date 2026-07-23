@@ -2,6 +2,20 @@
 
 # .NET 8 Aspire App with n8n Automation 🚀
 
+<!-- portfolio-badges:start -->
+<!-- Identity -->
+[![phmatray - aspire-app-with-n8n](https://img.shields.io/static/v1?label=phmatray&message=aspire-app-with-n8n&color=blue&logo=github)](https://github.com/phmatray/aspire-app-with-n8n)
+![Top language](https://img.shields.io/github/languages/top/phmatray/aspire-app-with-n8n)
+[![Stars](https://img.shields.io/github/stars/phmatray/aspire-app-with-n8n?style=social)](https://github.com/phmatray/aspire-app-with-n8n/stargazers)
+[![Forks](https://img.shields.io/github/forks/phmatray/aspire-app-with-n8n?style=social)](https://github.com/phmatray/aspire-app-with-n8n/network/members)
+
+<!-- Activity -->
+[![Issues](https://img.shields.io/github/issues/phmatray/aspire-app-with-n8n)](https://github.com/phmatray/aspire-app-with-n8n/issues)
+[![Pull requests](https://img.shields.io/github/issues-pr/phmatray/aspire-app-with-n8n)](https://github.com/phmatray/aspire-app-with-n8n/pulls)
+[![Last commit](https://img.shields.io/github/last-commit/phmatray/aspire-app-with-n8n)](https://github.com/phmatray/aspire-app-with-n8n/commits)
+<!-- portfolio-badges:end -->
+
+
 ---
 
 ## Introduction 📖
