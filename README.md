@@ -18,6 +18,13 @@
 
 <!-- portfolio-toc:start -->
 
+
+## Features
+
+- **Six self-contained Aspire demos** — n8n, Strapi CMS, micro-frontends, PrestaShop, TickerQ, container orchestration
+- **One integration per folder** — copy the pattern you need
+- **Full history preserved** — each sample keeps its original commits
+
 ## Table of Contents
 
 - [Samples](#samples)
