@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="@Language" data-theme="@Theme">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta
+    name="description"
+    content="A free admin dashboard template using Daisy UI and Custom Blazor SSR."
+  />
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="manifest" href="/manifest.json" />
+  <title>Demo HTMX Blazor</title>
+  <script src="/lib/htmx.min.js"></script>
+  <script src="/lib/chart.min.js"></script>
+  <link href="/css/tailwind.css" rel="stylesheet">
+</head>
+<body>
+
+@* Left drawer - containing page content and side bar (always open) *@
+<div class="drawer lg:drawer-open">
+  <input id="left-sidebar-drawer" type="checkbox" class="drawer-toggle"/>
+  <CascadingValue Name="Title" Value="@Title">
+    <PageContent>
+      @ChildContent
+    </PageContent>
+  </CascadingValue>
+  <LeftSidebar/>
+</div>
+
+@* Right drawer - containing secondary content like notifications list etc.. *@
+<RightSidebar IsOpen="@RightSidebarOpen"/>
+</body>
+</html>
+
+@code
+{
+  [Parameter]
+  public string Language { get; set; } = "en";
+  
+  [Parameter]
+  public string Theme { get; set; } = "light";
+  
+  [Parameter]
+  public string? Title { get; set; } = "Demo HTMX Blazor";
+  
+  [Parameter]
+  public bool RightSidebarOpen { get; set; }
+
+  [Parameter]
+  public RenderFragment ChildContent { get; set; } = null!;
+}
+
+
+

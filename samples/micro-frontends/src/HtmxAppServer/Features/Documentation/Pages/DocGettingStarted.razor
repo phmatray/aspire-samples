@@ -1,0 +1,19 @@
+@inherits HtmxComponentBase<GettingStartedEndpoint.GettingStartedParameters>
+
+<MainLayout Title="Documentation">
+  <div class="bg-base-100 flex overflow-hidden rounded-lg" style="height: 82vh;">
+    <div class="flex-none p-4">
+      <DocGettingStartedNav activeIndex="@ActiveIndex"/>
+    </div>
+  
+    <div class="grow pt-16 overflow-y-scroll">
+      <DocGettingStartedContent />
+    </div>
+  </div>
+</MainLayout>
+
+@code
+{
+  [Parameter]
+  public int ActiveIndex { get; set; } = 1;
+}

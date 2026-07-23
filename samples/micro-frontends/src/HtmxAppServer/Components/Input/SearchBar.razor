@@ -1,0 +1,28 @@
+<div class="@($"inline-block {StyleClass}")">
+  <div class="input-group relative flex flex-wrap items-stretch w-full">
+    <InputText type="search" @bind-Value="@SearchText" placeholder="@PlaceholderText" class="input input-sm input-bordered w-full max-w-xs" />
+  </div>
+</div>
+
+@code {
+  [Parameter]
+  public string SearchText { get; set; }
+
+  [Parameter]
+  public string StyleClass { get; set; }
+
+  [Parameter]
+  public string PlaceholderText { get; set; } = "Search";
+
+  // Optional: If you want to expose an event callback for when the search text changes
+  [Parameter]
+  public EventCallback<string> SearchTextChanged { get; set; }
+
+  // This method is not strictly necessary unless you need to do something
+  // special when SearchText changes.
+  private async Task OnSearchTextChanged(ChangeEventArgs e)
+  {
+    SearchText = e.Value?.ToString() ?? string.Empty;
+    await SearchTextChanged.InvokeAsync(SearchText);
+  }
+}

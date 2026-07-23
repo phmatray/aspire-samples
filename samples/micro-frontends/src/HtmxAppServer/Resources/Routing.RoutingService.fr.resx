@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="Hello" xml:space="preserve">
+        <value>Bonjour</value>
+    </data>
+    <data name="Goodbye" xml:space="preserve">
+        <value>Au revoir</value>
+    </data>
+    <data name="ThankYou" xml:space="preserve">
+        <value>Merci</value>
+    </data>
+    <data name="Yes" xml:space="preserve">
+        <value>Oui</value>
+    </data>
+    <data name="No" xml:space="preserve">
+        <value>Non</value>
+    </data>
+    <data name="Overview" xml:space="preserve">
+        <value>Aperçu</value>
+    </data>
+    <data name="Missions" xml:space="preserve">
+        <value>Missions</value>
+    </data>
+    <data name="Documents" xml:space="preserve">
+        <value>Documents</value>
+    </data>
+    <data name="Profile" xml:space="preserve">
+        <value>Profil</value>
+    </data>
+    <data name="Addresses" xml:space="preserve">
+        <value>Adresses</value>
+    </data>
+    <data name="Nationality" xml:space="preserve">
+        <value>Nationalité</value>
+    </data>
+    <data name="IdentificationNumbers" xml:space="preserve">
+        <value>Numéros d'identification</value>
+    </data>
+    <data name="LegalRelations" xml:space="preserve">
+        <value>Relations légales</value>
+    </data>
+    <data name="FamilyAndLineage" xml:space="preserve">
+        <value>Famille et filiation</value>
+    </data>
+    <data name="BCERelations" xml:space="preserve">
+        <value>Relations BCE</value>
+    </data>
+    <data name="LoggingMutations" xml:space="preserve">
+        <value>Logging Mutations</value>
+    </data>
+    <data name="Career" xml:space="preserve">
+        <value>Carrière</value>
+    </data>
+    <data name="AffiliationHistory" xml:space="preserve">
+        <value>Historique des affiliations</value>
+    </data>
+    <data name="AssistanceRequests" xml:space="preserve">
+        <value>Demandes d'aide</value>
+    </data>
+    <data name="CareerManagement" xml:space="preserve">
+        <value>Carrière en gestion</value>
+    </data>
+    <data name="HelpersAndSupported" xml:space="preserve">
+        <value>Aidants et aidés</value>
+    </data>
+    <data name="ContributionsOverview" xml:space="preserve">
+        <value>Aperçu de cotisations</value>
+    </data>
+    <data name="EClipz" xml:space="preserve">
+        <value>E-Clipz</value>
+    </data>
+    <data name="EUTransfer" xml:space="preserve">
+        <value>Transfert EU</value>
+    </data>
+    <data name="Revenues" xml:space="preserve">
+        <value>Revenus</value>
+    </data>
+    <data name="PensionEngineCareer" xml:space="preserve">
+        <value>Carrière Moteur Pension</value>
+    </data>
+    <data name="CareerCertificate" xml:space="preserve">
+        <value>Attestation de carrière</value>
+    </data>
+</root>

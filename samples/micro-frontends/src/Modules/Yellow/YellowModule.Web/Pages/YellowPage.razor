@@ -1,0 +1,51 @@
+@page "/yellow-page"
+@using YellowModule.ApiClient
+@using StrawberryShake
+@* https://youtrack.jetbrains.com/issue/RSRP-494352/Support-rendermode-directive *@
+@* @rendermode InteractiveAuto *@
+@attribute [RenderModeInteractiveServer]
+
+@inject IYellowGraphqlClient YellowApi
+
+<PageTitle>Yellow</PageTitle>
+
+<h1>Yellow Page</h1>
+
+This page is defined in the <strong>YellowModule.Web</strong> library.
+
+<HelloYellow />
+
+<h2>Yellow API</h2>
+
+<table>
+  <thead>
+  <tr>
+    <th>Book Title</th>
+    <th>Author Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>@_bookTitle</td>
+    <td>@_authorName</td>
+  </tr>
+  </tbody>
+</table>
+
+<p>This component demonstrates showing data loaded from a backend API service.</p>
+
+@code {
+  private string? _bookTitle;
+  private string? _authorName;
+
+  protected override async Task OnInitializedAsync()
+  {
+    // var result = await YellowApi.GetBooks.ExecuteAsync();
+    // result.EnsureNoErrors();
+    //
+    // IGetBooks_Book? book = result.Data?.Book;
+    // _bookTitle = book?.Title ?? "No book found";
+    // _authorName = book?.Author.Name ?? "No author found";
+  }
+
+}

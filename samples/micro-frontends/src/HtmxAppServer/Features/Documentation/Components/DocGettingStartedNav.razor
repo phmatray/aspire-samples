@@ -1,0 +1,47 @@
+<ul class="menu w-56 mt-10 text-sm">
+  <li class="menu-title">
+    <span>Getting Started</span>
+  </li>
+  @foreach (var item in NavItems)
+  {
+    <li class="@GetItemClass(item)" @onclick="@(() => ScrollToSection(item))">
+      <a>@item.Name</a>
+    </li>
+  }
+</ul>
+
+@code {
+  
+  [Parameter]
+  public int ActiveIndex { get; set; }
+
+  private List<NavItem> NavItems { get; set; }
+
+  protected override void OnParametersSet()
+  {
+    NavItems =
+    [
+      new NavItem { Name = "Introduction", IsActive = ActiveIndex == 1 },
+      new NavItem { Name = "How to Use", IsActive = ActiveIndex == 2 },
+      new NavItem { Name = "Tailwind CSS", IsActive = ActiveIndex == 3 },
+      new NavItem { Name = "Daisy UI", IsActive = ActiveIndex == 4 },
+      new NavItem { Name = "Chart JS", IsActive = ActiveIndex == 5 },
+      new NavItem { Name = "Redux Toolkit", IsActive = ActiveIndex == 6 },
+      new NavItem { Name = "Hero Icons", IsActive = ActiveIndex == 7 },
+      new NavItem { Name = "Project Structure", IsActive = ActiveIndex == 8 }
+    ];
+  }
+
+  private void ScrollToSection(NavItem item)
+  {
+    foreach (var navItem in NavItems)
+    {
+      navItem.IsActive = navItem == item;
+    }
+
+    // JavaScript interop to scroll
+    // JSRuntime.InvokeVoidAsync("eval", $"document.getElementById('feature{(NavItems.IndexOf(item) + 1)}').scrollIntoView({{behavior: 'smooth'}})");
+  }
+
+  private string GetItemClass(NavItem item) => item.IsActive ? "bordered" : "";
+}

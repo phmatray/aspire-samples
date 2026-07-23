@@ -1,0 +1,57 @@
+@using HtmxAppServer.Routing.Models
+@using HtmxAppServer.Routing
+@inject IRoutingService Routing
+
+<div class="drawer-side z-30">
+  <label htmlFor="left-sidebar-drawer" class="drawer-overlay"></label> 
+  <ul class="menu  pt-2 w-80 bg-base-100 min-h-full text-base-content">
+    <button class="btn btn-ghost bg-base-300 btn-circle z-50 top-0 right-0 mt-4 mr-2 absolute lg:hidden" @onClick="@Close">
+      <XMarkIcon class="inline-block w-5 h-5"/>
+    </button>
+      
+    <li class="mb-2 font-semibold text-xl">
+      <a href="@RouteWelcome">
+        <img class="mask mask-squircle w-10" src="/logo192.png" alt="SEQUOIA Logo"/>SEQUOIA Web
+      </a>
+    </li>
+    
+    @foreach (var item in _sidebarItems)
+    {
+      <li @key="item.Key">
+        @switch (item)
+        {
+          case SidebarDropdown collection:
+            <SidebarSubmenu
+              Submenu="@collection.Links"
+              Title="@collection.Title"
+              Icon="@collection.Icon"/>
+            break;
+          case SidebarLink route:
+            <a href=@route.Path class=@(Routing.IsCurrentRoute(route.Path) ? "font-semibold  bg-base-200" : "font-normal")>
+              <Heroicon Name="@item.Icon" Type="HeroiconType.Outline" class="h-6 w-6"/> @item.Title
+              @if (Routing.IsCurrentRoute(route.Path))
+              {
+                <span class="absolute inset-y-0 left-0 w-1 rounded-tr-md rounded-br-md bg-primary" aria-hidden="true"></span>
+              }
+            </a>
+            break;
+        }
+      </li>
+    }
+  </ul>
+</div>
+
+@code {
+
+  private SidebarItemCollection _sidebarItems = [];
+
+  protected override void OnInitialized()
+  {
+    _sidebarItems = Routing.GetSidebarItems();
+  }
+
+  private void Close()
+  {
+  }
+
+}

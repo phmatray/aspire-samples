@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <IsAspireHost>true</IsAspireHost>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\HtmxAppServer\HtmxAppServer.csproj" />
+      <ProjectReference Include="..\..\Modules\Blue\BlueModule.ApiService\BlueModule.ApiService.csproj" />
+      <ProjectReference Include="..\..\Modules\Green\GreenModule.ApiService\GreenModule.ApiService.csproj" />
+      <ProjectReference Include="..\..\Modules\Red\RedModule.ApiService\RedModule.ApiService.csproj" />
+      <ProjectReference Include="..\..\Modules\Yellow\YellowModule.ApiService\YellowModule.ApiService.csproj" />
+      <ProjectReference Include="..\..\WasmShell\WasmShell\WasmShell.csproj" />
+      <ProjectReference Include="..\..\Web.Bff.Gateway\Web.Bff.Gateway.csproj" />
+      <ProjectReference Include="..\AspireAppWithMicroFrontends.Web\AspireAppWithMicroFrontends.Web.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Hosting" Version="13.2.2" />
+    </ItemGroup>
+
+</Project>

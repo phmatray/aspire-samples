@@ -1,0 +1,6 @@
+﻿.green-component {
+    border: 2px dashed green;
+    padding: 1em;
+    margin: 1em 0;
+    background-image: url('background.png');
+}

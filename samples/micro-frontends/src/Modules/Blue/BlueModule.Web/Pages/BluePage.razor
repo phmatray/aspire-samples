@@ -1,0 +1,58 @@
+@page "/blue-page"
+@attribute [StreamRendering(true)]
+@* @attribute [OutputCache(Duration = 5)] *@
+
+@inject WeatherApiClient WeatherApi
+
+<PageTitle>Blue</PageTitle>
+
+<h1>Blue Page</h1>
+
+This page is defined in the <strong>BlueModule.Web</strong> library.
+
+<HelloBlue />
+
+<h2>Weather</h2>
+
+<p>This component demonstrates showing data loaded from a backend API service.</p>
+
+@if (_forecasts == null)
+{
+  <p>
+    <em>Loading...</em>
+  </p>
+}
+else
+{
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Date</th>
+      <th>Temp. (C)</th>
+      <th>Temp. (F)</th>
+      <th>Summary</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (WeatherForecast forecast in _forecasts)
+    {
+      <tr>
+        <td>@forecast.Date.ToShortDateString()</td>
+        <td>@forecast.TemperatureC</td>
+        <td>@forecast.TemperatureF</td>
+        <td>@forecast.Summary</td>
+      </tr>
+    }
+    </tbody>
+  </table>
+}
+
+@code {
+  private WeatherForecast[]? _forecasts;
+
+  protected override async Task OnInitializedAsync()
+  {
+    _forecasts = await WeatherApi.GetWeatherAsync();
+  }
+
+}
