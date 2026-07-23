@@ -15,6 +15,21 @@
 [![Last commit](https://img.shields.io/github/last-commit/phmatray/AspirePrestashop)](https://github.com/phmatray/AspirePrestashop/commits)
 <!-- portfolio-badges:end -->
 
+<!-- portfolio-toc:start -->
+
+## Table of Contents
+
+- [Architecture](#architecture)
+- [Components](#components)
+- [Setup](#setup)
+- [Notes](#notes)
+- [Tech Stack](#tech-stack)
+- [Contributing](#contributing)
+- [License](#license)
+
+<!-- portfolio-toc:end -->
+
+
 
 This project demonstrates how to integrate PrestaShop with .NET Aspire using Docker containers and REST API.
 
