@@ -2,6 +2,21 @@
 
 # AspireAppWithMicroFrontends
 
+<!-- portfolio-badges:start -->
+<!-- Identity -->
+[![phmatray - AspireAppWithMicroFrontends](https://img.shields.io/static/v1?label=phmatray&message=AspireAppWithMicroFrontends&color=blue&logo=github)](https://github.com/phmatray/AspireAppWithMicroFrontends)
+![Top language](https://img.shields.io/github/languages/top/phmatray/AspireAppWithMicroFrontends)
+[![Stars](https://img.shields.io/github/stars/phmatray/AspireAppWithMicroFrontends?style=social)](https://github.com/phmatray/AspireAppWithMicroFrontends/stargazers)
+[![Forks](https://img.shields.io/github/forks/phmatray/AspireAppWithMicroFrontends?style=social)](https://github.com/phmatray/AspireAppWithMicroFrontends/network/members)
+[![License](https://img.shields.io/github/license/phmatray/AspireAppWithMicroFrontends)](https://github.com/phmatray/AspireAppWithMicroFrontends/blob/HEAD/LICENSE)
+
+<!-- Activity -->
+[![Issues](https://img.shields.io/github/issues/phmatray/AspireAppWithMicroFrontends)](https://github.com/phmatray/AspireAppWithMicroFrontends/issues)
+[![Pull requests](https://img.shields.io/github/issues-pr/phmatray/AspireAppWithMicroFrontends)](https://github.com/phmatray/AspireAppWithMicroFrontends/pulls)
+[![Last commit](https://img.shields.io/github/last-commit/phmatray/AspireAppWithMicroFrontends)](https://github.com/phmatray/AspireAppWithMicroFrontends/commits)
+<!-- portfolio-badges:end -->
+
+
 A demonstration project showcasing **micro-frontends architecture** built with **.NET Aspire** and **Blazor**. The application orchestrates multiple independent UI modules (Blue, Green, Red, Yellow) — each with its own API service, domain layer, and web components — composed into several shell applications using different rendering strategies.
 
 ## Architecture Overview
