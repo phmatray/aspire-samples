@@ -68,3 +68,21 @@ This project demonstrates how to integrate PrestaShop with .NET Aspire using Doc
 - PrestaShop container will auto-install on first run
 - Data is persisted using Docker volumes
 - The integration uses PrestaShop's REST API with XML responses
+
+---
+
+<!-- portfolio-sections:start -->
+
+## Contributing
+
+Contributions are welcome. Open an issue first to discuss any significant change.
+
+1. Fork the repository and create your branch (`git checkout -b feat/my-feature`)
+2. Commit your changes (`git commit -m 'feat: ...'`)
+3. Push the branch and open a Pull Request
+
+## License
+
+No license has been declared for this repository yet. Until one is added, default copyright applies — see [choosealicense.com](https://choosealicense.com/) if you intend to open it up.
+
+<!-- portfolio-sections:end -->
