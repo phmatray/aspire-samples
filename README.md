@@ -1,3 +1,5 @@
+![AspireStrapi banner](.github/banner.png)
+
 # AspireStrapi 🚀
 
 [![.NET](https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
