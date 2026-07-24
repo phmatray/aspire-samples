@@ -1,0 +1,55 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        solution:
+          - samples/strapi-cms/AspireStrapi.sln
+          - samples/tickerq-notifications/AspireTickerQ.slnx
+
+          # Known non-building subprojects (excluded):
+          # - samples/container-orchestration/AspireContainer.sln
+          #     CS0246/CS0311: ContainerResource / IResourceWithConnectionString / IResourceBuilder<T>
+          #     types not found - AspireContainer library targets the deprecated Aspire workload
+          #     hosting API surface, which no longer resolves on .NET 10 SDK (NETSDK1228).
+          # - samples/container-orchestration/AspireContainer.Demo/AspireContainer.Demo.sln
+          #     Same root cause (NETSDK1228 Aspire workload deprecation) plus CS1061 on
+          #     IHttpClientBuilder.UseServiceDiscovery in ServiceDefaults/Extensions.cs.
+          # - samples/micro-frontends/AspireAppWithMicroFrontends.sln
+          #     NU1202: Microsoft.AspNetCore.Components.Web 10.0.6 only supports net10.0, but
+          #     Directory.Build.props pins TargetFramework to net8.0.
+          # - samples/micro-frontends/src/WasmShell/WasmShell.sln
+          #     Same NU1202 net8.0/10.0.6 package mismatch (RedModule.Web).
+          # - samples/micro-frontends/src/WebShell/WebShell.sln
+          #     Same NU1202 net8.0/10.0.6 package mismatch (WebShell.Client).
+          # - samples/n8n-automation/AspireAppWithAutomation.sln
+          #     CS0246: IDistributedApplicationBuilder not found in N8NBuilderExtensions.cs -
+          #     AppHost targets the deprecated Aspire workload hosting API surface.
+          # - samples/n8n-automation/AspireAppWithAutomation/AspireAppWithAutomation.sln
+          #     Duplicate nested solution, same root cause as above.
+          # - samples/prestashop/AspirePrestashop.sln
+          #     CS0234: 'Microsoft.OpenApi' namespace missing from the generated
+          #     OpenApiXmlCommentSupport source - AspirePrestashop.ApiService (net9.0) pins
+          #     Microsoft.AspNetCore.OpenApi 10.0.6, incompatible with the net9.0 built-in
+          #     OpenApi source generator on the .NET 10 SDK.
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Install .NET Aspire workload
+        run: dotnet workload install aspire
+
+      - name: Build ${{ matrix.solution }}
+        run: dotnet build "${{ matrix.solution }}" -c Release
